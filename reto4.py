@@ -200,7 +200,7 @@ for fila in range(5):
   
   # Se imprime la quinta salida que pide el ejercicio: 
   # Halla El número del departamento con menor cantidad de antenas instaladas del tipo correspondiente, seguido del tipo de la nueva antena y el valor de las nuevas antenas instaladas de ese tipo.
-  print(lista.index(menor) +1, buscarletra(fila), menor)
+  print(lista.index(menor)+1, buscarletra(fila), menor)
   
   
   # Se utiliza la función mayor, para hallar el valor mayor en la lista.
