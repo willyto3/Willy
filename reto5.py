@@ -47,9 +47,14 @@ def buscarletra(indice):
   return letra
 
 """
+
 # Solicitamos los departamentos a buscar (n)
 
 departamentos= input().split(" ")
+
+# Creamos una matriz de departamentos filas (numero de departamento) por 6 columnas (tipo de antenas)
+
+# comentario
 
 # Elegimos la Ruta del archivo CSV
 ruta = "data.csv"
@@ -67,41 +72,17 @@ for i in range(1, len(lineas)):
 # Variable de conteo
 for departamento in departamentos:
 
-  cont = 0
-  sum = 0
   numero_departamento = departamento
   nombre_departamento = ''
   
-  # Definicion de arreglo
-  tipo = [0, 0, 0, 0, 0]
-
   # Ciclo de conteo
   for fila in matriz:
-      if fila[0] == depto:
-          nombre = fila[1]
-          cont += 1
-          sum += int(fila[2])
-          fila[4] = fila[4].replace("\n", "")
-          if fila[4] == 'a':
-              tipo[0] += 1
-          elif fila[4] == 'b':
-              tipo[1] += 1
-          elif fila[4] == 'c':
-              tipo[2] += 1
-          elif fila[4] == 'd':
-              tipo[3] += 1
-          elif fila[4] == 'e':
-              tipo[4] += 1
-  # Imprimir matriz
-  f = "{:.2f}"
-  print(depto, nombre)
-  print("terrain area")
-  print("mean", f.format(sum / cont))
-  print(tipo)
+      if fila[0] == numero_departamento:
+          nombre_departamento = fila[1]
+          area_de_zona = float(fila[2])
+          antenas_iniciales = int(fila[3])
+          tipo_antenas_nuevas = fila[4].replace("\n", "")
 
-
-
-"""
 # Creamos una lista con el numero de antenas en cada departamento y lo iniciamos en cero
 for i in range(n):
   lista_departamentos.append(0)
@@ -259,3 +240,13 @@ def imprimir(a):
         print(item)
     print()
   """
+
+"""
+"""          
+  # Imprimir matriz
+  f = "{:.2f}"
+  print(depto, nombre)
+  print("terrain area")
+  print("mean", f.format(sum / cont))
+  print(tipo)
+"""
