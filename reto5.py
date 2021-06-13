@@ -29,25 +29,6 @@ def nantenas(area_de_zona, antenas_iniciales, alcance_antena_nueva):
         numero_de_antenas =0
     return numero_de_antenas
 
-"""
-# Funcion para buscar la letra (tipo de antena nueva) en función de la posición de la lista_antenas, recibe una variable.
-# (Indice) y retorna letra (tipo de antena)
-
-def buscarletra(indice): 
-  if indice == 0:
-    letra="a"
-  elif indice == 1:
-    letra="b"
-  elif indice == 2:
-    letra="c"
-  elif indice == 3:
-    letra="d"
-  elif indice == 4:
-    letra="e"
-  return letra
-
-"""
-
 # Solicitamos los departamentos a buscar (n) y los guardamos en una lista
 
 lista_departamentos= input().split(" ")
@@ -84,7 +65,7 @@ for departamento in lista_departamentos:
   numero_departamento = departamento
   nombre_departamento = ''
   nombres_departamentos=[]
-    
+  
 
   for fila in matriz:
       if fila[0] == numero_departamento:
@@ -156,9 +137,15 @@ for departamento in lista_departamentos:
 # SALIDAS
 f = "{:.2f}"
 for departamento in range(len(lista_departamentos)):
-  suma = matriz_departamentos[departamento][7]
   print(lista_departamentos[departamento], matriz_departamentos[departamento][6])
   print("terrain area")
   promedio= matriz_departamentos[departamento][7]/matriz_departamentos[departamento][8]
-  print("mean", f.format(promedio)
+  print("mean", f.format(promedio))
+  suma = matriz_departamentos[departamento][7]**2
+  division = suma/matriz_departamentos[departamento][8]
+  factor=promedio*promedio
+  resta=division - factor
+  std=math.sqrt(resta)
+  print("std", std)
 
+  
