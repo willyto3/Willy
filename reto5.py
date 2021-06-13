@@ -52,14 +52,16 @@ def buscarletra(indice):
 
 lista_departamentos= input().split(" ")
 
+lista_departamentos= list(map(int,lista_departamentos))
 lista_departamentos.sort()
+lista_departamentos= list(map(str,lista_departamentos))
 
-# Creamos una matriz de departamentos filas (numero de departamento) por 5 columnas (tipo de antenas)
+# Creamos una matriz de departamentos filas (numero de departamento) por 9 columnas (tipo de antenas)
 matriz_departamentos=[]
 
 for fila in range(len(lista_departamentos)):
   matriz_departamentos.append([])
-  for columna in range(5):
+  for columna in range(9):
     matriz_departamentos[fila].append(0)
 
 
@@ -81,14 +83,19 @@ for departamento in lista_departamentos:
   indice=lista_departamentos.index(departamento)
   numero_departamento = departamento
   nombre_departamento = ''
-  
+  nombres_departamentos=[]
+    
 
   for fila in matriz:
       if fila[0] == numero_departamento:
         nombre_departamento = fila[1]
+        matriz_departamentos[indice][5]=numero_departamento
+        matriz_departamentos[indice][6]=nombre_departamento
         area_de_zona = float(fila[2])
         antenas_iniciales = int(fila[3])
         tipo_antenas_nuevas = fila[4].replace("\n", "")
+        matriz_departamentos[indice][7]+=area_de_zona
+        matriz_departamentos[indice][8]+=1
 
         # ENTRADAS
         # Se reinicia los contadores de las antenas.
@@ -146,96 +153,12 @@ for departamento in lista_departamentos:
           # Si es un tipo de antena no definido dentro del tipo de antenas (a,b,c,d,e) el tipo de antenas lo coloca como falso
           tipo_antenas_nuevas = False
 
-print(matriz_departamentos)
-
-"""  
-    # Comprobamos que  tipo de antenas nuevas y numero de departamento correspondan a los tipos establecidos
-    if tipo_antenas_nuevas != False and numero_departamento != False:
-      # Se calculan las antenas totales requeridas
-      antenas_totales = antenas_a + antenas_b + antenas_c + antenas_d + antenas_e
-    else:
-      # Si el tipo de anteas nuevas y el numero de departamento no estan en el rango, las antenas totales son iguales a cero.
-      antenas_totales = 0
-
-    # Se le da un valor de -1 a antenas iniciales para que ingrese nuevamente al ciclo while
-    antenas_iniciales = -1
-
-    # Se asigna las antenas totales que tiene el departamento (se acumula en la lista)
-    lista_departamentos[numero_departamento-1] = antenas_totales + \
-        lista_departamentos[numero_departamento-1]
-
 # SALIDAS
-# Se implementa un for para recorrer las columnas.
-for columna in range(n):
-  # Creamos una lista vacía "lista", para guardar la cantidad de cada tipo de antenas por departamento.
-  lista=[]
-  # Se imprime la primera salida que pide el ejercicio: el número del departamento.
-  print(columna+1)
-  # Se imprime la segunda salida que pide el ejercicio: cantidad de antenas totales de dicho departamento.
-  print(lista_departamentos[columna])
-
-  # Se utiliza un for anidado para recorrer las filas (tipo de antenas)
-  for fila in range(5):
-    # Se llena la lista con los datos de cada departamento. 
-    lista.append(lista_antenas[fila][columna])
-  
-  # Se utiliza la función menor, para hallar el valor menor en la lista.
-  menor=min(lista)
-  # Se imprime la tercera salida que pide el ejercicio: 
-  # Halla El tipo de nueva antena con menor cantidad instalada, seguido de su valor correspondiente.
-  print(buscarletra(lista.index(menor)), menor)
-  
-  # Se utiliza la función mayor, para hallar el valor mayor en la lista.
-  mayor=max(lista)
-
-  # Se imprime la cuarta salida que pide el ejercicio: 
-  # Halla El tipo de nueva antena con mayor cantidad instalada, seguido de su valor correspondiente.
-  print(buscarletra(lista.index(mayor)), mayor)
-
-
-# Se implementa un for para recorrer las filas.
-for fila in range(5):
-  # Creamos una lista vacía "lista", para guardar la cantidad de antenas nuevas de un tipo por cada departamento.
-  lista=[]
-  # Se utiliza un for anidado para recorrer las columnas (departamentos)
-  for columna in range(n):
-    
-    # Se llena la lista con los datos de cada tipo de antenas. 
-    lista.append(lista_antenas[fila][columna])
-
-  # Se utiliza la función menor, para hallar el valor menor en la lista.
-  menor=min(lista)
-  
-  # Se imprime la quinta salida que pide el ejercicio: 
-  # Halla El número del departamento con menor cantidad de antenas instaladas del tipo correspondiente, seguido del tipo de la nueva antena y el valor de las nuevas antenas instaladas de ese tipo.
-  print(lista.index(menor)+1, buscarletra(fila), menor)
-  
-  
-  # Se utiliza la función mayor, para hallar el valor mayor en la lista.
-  mayor=max(lista)
-
-  # Se imprime la sexta salida que pide el ejercicio: 
-  # Halla El número del departamento con mayor cantidad de antenas instaladas del tipo correspondiente, seguido del tipo de la nueva antena y el valor de las nuevas antenas instaladas de ese tipo.
-  print(lista.index(mayor)+1, buscarletra(fila), mayor)
-
-
-
-
-
-# Funcion para impresion
-# de arreglo bidimensional
-def imprimir(a):
-    for item in a:
-        print(item)
-    print()
-  
-
-"""
-"""          
-  # Imprimir matriz
-  f = "{:.2f}"
-  print(depto, nombre)
+f = "{:.2f}"
+for departamento in range(len(lista_departamentos)):
+  suma = matriz_departamentos[departamento][7]
+  print(lista_departamentos[departamento], matriz_departamentos[departamento][6])
   print("terrain area")
-  print("mean", f.format(sum / cont))
-  print(tipo)
-"""
+  promedio= matriz_departamentos[departamento][7]/matriz_departamentos[departamento][8]
+  print("mean", f.format(promedio)
+
