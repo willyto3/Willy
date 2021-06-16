@@ -57,7 +57,7 @@ def pantallaprincipal():
     splash.destroy()
     pantallainicial = Tk()
     pantallainicial.title("BASE DE DATOS")
-    #pantallainicial.iconbitmap('Base de Datos\\icono.ico')
+    #pantallainicial.iconbitmap('D:\Proyectos Willy\Base de Datos/Health.contrast-black.ico')
     pantallainicial.geometry("600x600")
 
     # Creando funcion Credito
