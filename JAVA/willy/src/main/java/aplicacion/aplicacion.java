@@ -62,7 +62,7 @@ public final class aplicacion {
                     }
                     switch (opcionSubMenu) {
                         case CREAR:
-                        crearCliente(clientes);
+                            crearCliente(clientes);
                             break;
                         case BUSCAR:
                             break;
@@ -93,42 +93,49 @@ public final class aplicacion {
         int numeroTelefono;
         String cedula;
 
-        do{
-            numeroCedula=capturarNumeroEntero("Digite el numero de la cedula del cliente nuevo");
-            if (numeroCedula<=0){
+        do {
+            numeroCedula = capturarNumeroEntero("Digite el numero de la cedula del cliente nuevo");
+            if (numeroCedula <= 0) {
                 System.out.println("La cedula debe ser un número entero positivo");
                 numeroCedula = 0;
                 continue;
             }
-            cedula =  String.valueOf(numeroCedula);
-            Cliente cliente =buscarClientePorCedula(clientes,cedula);
-            if (cliente !=null){
+            cedula = String.valueOf(numeroCedula);
+            Cliente cliente = buscarClientePorCedula(clientes, cedula);
+            if (cliente != null) {
                 System.out.printf("MENSAJE: Ya existe otro cliente con numero de cedula: %s\n", cedula);
                 numeroCedula = 0;
             }
 
-        }while (numeroCedula<=0);
+        } while (numeroCedula <= 0);
 
         String nombres = capturarCadenaDeCaracteres("Digite el nombre del cliente nuevo");
         String apellidos = capturarCadenaDeCaracteres("Digite los apellidos del cliente nuevo");
 
         do {
             numeroTelefono = capturarNumeroEntero("Digite el número de telefono del cliente nuevo");
-            if (numeroTelefono<=0){
+            if (numeroTelefono <= 0) {
                 System.out.println("El número de telefono debe ser un número entero positivo");
                 numeroTelefono = 0;
                 continue;
             }
-        } while (numeroTelefono<=0);
+        } while (numeroTelefono <= 0);
+
+        String direccion = capturarCadenaDeCaracteres("Digite la dirección del cliente nuevo");
     }
 
     private static Cliente buscarClientePorCedula(List<Cliente> clientes, String cedula) {
-        for(Cliente cliente:clientes){
-            if (cliente.getCedula().equals(cedula)){
+        for (Cliente cliente : clientes) {
+            if (cliente.getCedula().equals(cedula)) {
                 return cliente;
             }
         }
         return null;
+    }
+
+    static boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
     }
 
     public static void mostrarMenuPrincipal() {
@@ -183,6 +190,7 @@ public final class aplicacion {
         String resultado;
 
         while (true) {
+            System.out.printf("%s: ", mensaje);
             resultado = teclado.nextLine().strip();
 
             if (!resultado.isEmpty()) {
