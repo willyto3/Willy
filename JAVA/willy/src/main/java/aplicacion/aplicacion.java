@@ -90,6 +90,7 @@ public final class aplicacion {
     private static void crearCliente(List<Cliente> clientes) {
         System.out.println("---1. Crear Cliente---");
         int numeroCedula;
+        int numeroTelefono;
         String cedula;
 
         do{
@@ -107,6 +108,18 @@ public final class aplicacion {
             }
 
         }while (numeroCedula<=0);
+
+        String nombres = capturarCadenaDeCaracteres("Digite el nombre del cliente nuevo");
+        String apellidos = capturarCadenaDeCaracteres("Digite los apellidos del cliente nuevo");
+
+        do {
+            numeroTelefono = capturarNumeroEntero("Digite el número de telefono del cliente nuevo");
+            if (numeroTelefono<=0){
+                System.out.println("El número de telefono debe ser un número entero positivo");
+                numeroTelefono = 0;
+                continue;
+            }
+        } while (numeroTelefono<=0);
     }
 
     private static Cliente buscarClientePorCedula(List<Cliente> clientes, String cedula) {
