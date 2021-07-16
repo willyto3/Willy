@@ -77,4 +77,12 @@ public class funciones {
         System.out.println("3. Eliminar");
         System.out.println("0. Salir");
     }
+
+    //Funcion para focalizar la atencion del usuario
+    public static void continuar(){
+        System.out.println();
+        System.out.println("Presione Enter para Continuar...");
+        aplicacion.teclado.nextLine();
+    }
+
 }

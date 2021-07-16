@@ -31,8 +31,6 @@ public final class aplicacion {
         List<Factura> facturas = new ArrayList<>();
 
         int opcion;
-        int opcionSubMenu;
-        Cliente cliente;
 
         do {
             do {
@@ -48,46 +46,8 @@ public final class aplicacion {
             }
             switch (opcion) {
                 case GESTION_CLIENTES:
-
-                    do {
-                        funciones.mostrarSubMenu("Clientes");
-                        opcionSubMenu = funciones.capturarNumeroEntero("Digite la operacion a Realizar: ");
-                        if (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR) {
-                            System.out.println("MENSAJE: Debe Digitar un Valor entre 0 y 4.");
-                        }
-                    } while (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR);
-
-                    if (opcionSubMenu == SALIR) {
-                        break;
-                    }
-                    switch (opcionSubMenu) {
-                        case CREAR:
-                            cliente = crearCliente(clientes);
-                            clientes.add(cliente);
-                            break;
-                        case BUSCAR:
-                            cliente = buscarCliente(clientes);
-
-                            if (clientes != null) {
-                                actualizarCliente(cliente);
-                            } else {
-                                System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                            }
-                            break;
-                        case ACTUALIZAR:
-                            cliente = buscarCliente(clientes);
-
-                            if (clientes != null) {
-                                mostrarDatosCliente(cliente);
-                            } else {
-                                System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                            }
-                            break;
-                        case ELIMINAR:
-                            eliminarCliente(clientes, facturas);
-                            break;
-                    }
-
+                    gestionarClientes(clientes, facturas);
+                    break;
                 case GESTION_PROVEEDORES:
                     funciones.mostrarSubMenu("Proveedores");
                     break;
@@ -258,6 +218,7 @@ public final class aplicacion {
         }
 
         cliente = new Cliente(cedula, nombres, apellidos, String.valueOf(numeroTelefono), direccion, email);
+        System.out.printf("Se registró exitosamente el cliente %s \n", cedula);
         return cliente;
     }
 
@@ -268,6 +229,56 @@ public final class aplicacion {
             }
         }
         return null;
+    }
+
+    private static int gestionarClientes(List<Cliente> clientes, List<Factura> facturas) {
+        int opcionSubMenu;
+        Cliente cliente;
+
+        do {
+            funciones.mostrarSubMenu("Clientes");
+            opcionSubMenu = funciones.capturarNumeroEntero("Digite la operacion a Realizar: ");
+            if (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR) {
+                System.out.println("MENSAJE: Debe Digitar un Valor entre 0 y 4.");
+            }
+        } while (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR);
+
+        switch (opcionSubMenu) {
+            case SALIR:
+                break;
+            case CREAR:
+                cliente = crearCliente(clientes);
+                clientes.add(cliente);
+                funciones.continuar();
+                break;
+            case BUSCAR:
+                cliente = buscarCliente(clientes);
+
+                if (clientes != null) {
+                    mostrarDatosCliente(cliente);
+
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ACTUALIZAR:
+                cliente = buscarCliente(clientes);
+
+                if (clientes != null) {
+                    actualizarCliente(cliente);
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ELIMINAR:
+                eliminarCliente(clientes, facturas);
+                funciones.continuar();
+                break;
+        }
+        return opcionSubMenu;
+
     }
 
 }
