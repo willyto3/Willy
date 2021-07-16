@@ -146,7 +146,7 @@ public final class aplicacion {
 
     private static void actualizarCliente(Cliente cliente) {
         System.out.println("---3. Actualizar Cliente---");
-        int numeroCedula;
+
         int numeroTelefono;
         String cedula = "";
         String email;
