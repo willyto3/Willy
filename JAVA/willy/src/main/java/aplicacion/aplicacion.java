@@ -252,6 +252,7 @@ public final class aplicacion {
                 funciones.continuar();
                 break;
             case BUSCAR:
+            
                 cliente = buscarCliente(clientes);
 
                 if (clientes != null) {
