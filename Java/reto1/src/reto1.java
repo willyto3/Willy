@@ -126,3 +126,8 @@ public class reto1 {
                 nombreestudiante = "alexandra";
                 break;
         }
+        System.out.println(nombreestudiante);
+
+    }
+
+}
