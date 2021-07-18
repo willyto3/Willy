@@ -1,9 +1,8 @@
 
 package PCKModelo;
 
-
 public class Municipio {
-    
+
     private int idMunicipio;
     private String NombreMunicipio;
     private int fkidDepartamento;
@@ -31,7 +30,5 @@ public class Municipio {
     public void setFkidDepartamento(int fkidDepartamento) {
         this.fkidDepartamento = fkidDepartamento;
     }
-    
-    
-    
+
 }
