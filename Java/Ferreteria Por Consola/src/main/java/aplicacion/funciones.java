@@ -58,7 +58,7 @@ public class funciones {
         System.out.println("0. Salir");
     }
 
-    // Funcion para presentar en pantalla el sub menu Ciente, Proveedores y
+    // Funcion para presentar en pantalla el sub menu Cliente, Proveedores y
     // Productos
     public static void mostrarSubMenu(String tipoMenu) {
         System.out.printf("**Menu Gestion %s**\n", tipoMenu);

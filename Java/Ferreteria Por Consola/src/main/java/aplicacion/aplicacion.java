@@ -49,7 +49,7 @@ public final class aplicacion {
                     gestionarClientes(clientes, facturas);
                     break;
                 case GESTION_PROVEEDORES:
-                    funciones.mostrarSubMenu("Proveedores");
+                    gestionarProveedores(provedores, facturas);
                     break;
                 case GESTION_PRODUCTOS:
                     funciones.mostrarSubMenu("Productos");
@@ -231,7 +231,16 @@ public final class aplicacion {
         return null;
     }
 
-    private static int gestionarClientes(List<Cliente> clientes, List<Factura> facturas) {
+    private static Proveedor buscarProveedorPorId(List<Proveedor> proveedores, int id) {
+        for (Proveedor proveedor : proveedores) {
+            if (proveedor.getId() == id) {
+                return proveedor;
+            }
+        }
+        return null;
+    }
+
+    private static void gestionarClientes(List<Cliente> clientes, List<Factura> facturas) {
         int opcionSubMenu;
         Cliente cliente;
 
@@ -252,7 +261,7 @@ public final class aplicacion {
                 funciones.continuar();
                 break;
             case BUSCAR:
-            
+
                 cliente = buscarCliente(clientes);
 
                 if (clientes != null) {
@@ -278,8 +287,86 @@ public final class aplicacion {
                 funciones.continuar();
                 break;
         }
-        return opcionSubMenu;
 
+    }
+
+    private static void gestionarProveedores(List<Proveedor> proveedores, List<Factura> facturas) {
+        int opcionSubMenu;
+        Proveedor proveedor;
+
+        do {
+            funciones.mostrarSubMenu("Proveedores");
+            opcionSubMenu = funciones.capturarNumeroEntero("Digite la operacion a Realizar: ");
+            if (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR) {
+                System.out.println("MENSAJE: Debe Digitar un Valor entre 0 y 4.");
+            }
+        } while (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR);
+
+        switch (opcionSubMenu) {
+            case SALIR:
+                break;
+            case CREAR:
+                proveedor = crearProveedor(proveedores);
+                proveedores.add(proveedor);
+                funciones.continuar();
+                break;
+            case BUSCAR:
+                /*
+                 * cliente = buscarCliente(clientes);
+                 * 
+                 * if (clientes != null) { mostrarDatosCliente(cliente);
+                 * 
+                 * } else { System.out.
+                 * println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                 * } funciones.continuar(); break; case ACTUALIZAR: cliente =
+                 * buscarCliente(clientes);
+                 * 
+                 * if (clientes != null) { actualizarCliente(cliente); } else { System.out.
+                 * println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                 * } funciones.continuar(); break; case ELIMINAR: eliminarCliente(clientes,
+                 * facturas); funciones.continuar(); break;
+                 */
+        }
+
+    }
+
+    private static Proveedor crearProveedor(List<Proveedor> proveedores) {
+        System.out.println("---1. Crear Proveedor---");
+        int numeroId;
+        int numeroTelefono;
+        Proveedor proveedor;
+
+        do {
+            numeroId = funciones.capturarNumeroEntero("Digite el numero de ID del proveedor nuevo");
+            if (numeroId <= 0) {
+                System.out.println("El ID debe ser un número entero positivo");
+                numeroId = 0;
+                continue;
+            }
+            proveedor = buscarProveedorPorId(proveedores, numeroId);
+            if (proveedor != null) {
+                System.out.printf("MENSAJE: Ya existe otro proveedor con este numero de ID: %s\n", numeroId);
+                numeroId = 0;
+            }
+
+        } while (numeroId <= 0);
+
+        String nombres = funciones.capturarCadenaDeCaracteres("Digite el nombre del Proveedor nuevo");
+
+        do {
+            numeroTelefono = funciones.capturarNumeroEntero("Digite el número de telefono del Proveedor nuevo");
+            if (numeroTelefono <= 0) {
+                System.out.println("El número de telefono debe ser un número entero positivo");
+                numeroTelefono = 0;
+                continue;
+            }
+        } while (numeroTelefono <= 0);
+
+        String direccion = funciones.capturarCadenaDeCaracteres("Digite la dirección del Proveedor nuevo");
+
+        proveedor = new Proveedor(numeroId, nombres, String.valueOf(numeroTelefono), direccion);
+        System.out.printf("Se registró exitosamente el proveedor %s \n", numeroId);
+        return proveedor;
     }
 
 }
