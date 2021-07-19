@@ -107,14 +107,6 @@ public class SchoolGradingSystem {
 
     public static void question2() {
 
-        float sumatoria_de_notas = 0;
-        // Calculamos el promedio de las notas, iniciando sumatoria_de_notas=0
-
-        for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
-            // System.out.println(desempeño_de_estudiantes.get(i).getCalificacion());
-            sumatoria_de_notas += desempeño_de_estudiantes.get(i).getCalificacion();
-        }
-
         // Se contabiliza el número de notas inferiores al promedio de notas
         int notas_excelentes = 0;
 
@@ -140,6 +132,38 @@ public class SchoolGradingSystem {
     }
 
     public static void question3() {
+
+        // ¿Cuál es la materia con el mayor numero de examenes reprobados
+        // Definimos los contadores para las materias: 1,2 y 3
+        int materia_1 = 0;
+        int materia_2 = 0;
+        int materia_3 = 0;
+
+        for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
+            if (desempeño_de_estudiantes.get(i).getMateria() == 1) {
+                if (desempeño_de_estudiantes.get(i).getCalificacion() <= 6) {
+                    materia_1 += 1;
+                }
+            } else if (desempeño_de_estudiantes.get(i).getMateria() == 2) {
+                if (desempeño_de_estudiantes.get(i).getCalificacion() <= 6) {
+                    materia_2 += 1;
+                }
+            } else {
+                if (desempeño_de_estudiantes.get(i).getCalificacion() <= 6) {
+                    materia_3 += 1;
+                }
+            }
+        }
+
+        // Comparamos las cantidades de examenes reprobados de cada materia, para
+        // definir la materia con mayor número de examenes reprobados
+        if (materia_1 >= materia_2 && materia_1 >= materia_3) {
+            System.out.println("idiomas");
+        } else if (materia_2 > materia_3) {
+            System.out.println("historia");
+        } else {
+            System.out.println("literatura");
+        }
 
     }
 
