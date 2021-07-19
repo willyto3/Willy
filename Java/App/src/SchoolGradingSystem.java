@@ -84,7 +84,7 @@ public class SchoolGradingSystem {
         // Calculamos el promedio de las notas, iniciando sumatoria_de_notas=0
 
         for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
-            System.out.println(desempeño_de_estudiantes.get(i).getCalificacion());
+            // System.out.println(desempeño_de_estudiantes.get(i).getCalificacion());
             sumatoria_de_notas += desempeño_de_estudiantes.get(i).getCalificacion();
         }
 
@@ -106,6 +106,36 @@ public class SchoolGradingSystem {
     }
 
     public static void question2() {
+
+        float sumatoria_de_notas = 0;
+        // Calculamos el promedio de las notas, iniciando sumatoria_de_notas=0
+
+        for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
+            // System.out.println(desempeño_de_estudiantes.get(i).getCalificacion());
+            sumatoria_de_notas += desempeño_de_estudiantes.get(i).getCalificacion();
+        }
+
+        // Se contabiliza el número de notas inferiores al promedio de notas
+        int notas_excelentes = 0;
+
+        for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
+            // sumatoria_de_notas += desempeño_de_estudiantes.get(i).getCalificacion();
+            if (desempeño_de_estudiantes.get(i).getCalificacion() > 9) {
+                notas_excelentes += 1;
+            }
+        }
+
+        double b = notas_excelentes;
+        double c = desempeño_de_estudiantes.size();
+
+        Double porcentaje = (b) / c;
+        porcentaje = Math.round(porcentaje * 100) / 100d;
+
+        if (porcentaje == 0) {
+            System.out.println("0.00");
+        } else {
+            System.out.println("Porcentaje superior a excelente " + porcentaje);
+        }
 
     }
 }
