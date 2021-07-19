@@ -138,18 +138,12 @@ public class SchoolGradingSystem {
         }
 
     }
-}
 
-/*
- * 
- * 
- * 
- * 
- * public static void question3() {
- * 
- * }
- * 
- * public static void question4() {
- * 
- * }
- */
+    public static void question3() {
+
+    }
+
+    public static void question4() {
+
+    }
+}

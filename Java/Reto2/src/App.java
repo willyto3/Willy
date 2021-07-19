@@ -7,9 +7,9 @@ public class App {
 
         SchoolGradingSystem.question2();
 
-        /*
-         * SchoolGradingSystem.question3(); SchoolGradingSystem.question4();
-         */
+        SchoolGradingSystem.question3();
+
+        SchoolGradingSystem.question4();
 
     }
 }
