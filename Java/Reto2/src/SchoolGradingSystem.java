@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Se debe implementar todo el procesamiento de información y cálculos en una clase llamada SchoolGradingSystem.
 public class SchoolGradingSystem {
     private float nombre;
     private float genero;
