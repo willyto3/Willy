@@ -177,7 +177,8 @@ public class SchoolGradingSystem {
     // examenes reprobado
     public static void question3() {
 
-        // Declaramos las constantes Ingles y Historia - Constantes se declaran en Mayuscula Sostenida
+        // Declaramos las constantes Ingles y Historia - Constantes se declaran en
+        // Mayuscula Sostenida
         final var INGLES = 1;
         final var HISTORIA = 2;
 
@@ -225,7 +226,8 @@ public class SchoolGradingSystem {
     // para la materia idiomas?
     public static void question4() {
 
-        // Declaramos las constante Ingles - Constantes se declaran en Mayuscula Sostenida
+        // Declaramos las constante Ingles - Constantes se declaran en Mayuscula
+        // Sostenida
         final var INGLES = 1;
 
         // declaramos las variables mayor nota y mejor estudiante
