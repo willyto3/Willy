@@ -169,5 +169,40 @@ public class SchoolGradingSystem {
 
     public static void question4() {
 
+        // ¿Cuál es el estudiante con el mejor desempeño para la materia idiomas?
+        float mayor_nota = 0f;
+        Float estudiante_mejor = 0f;
+        for (int i = 0; i < desempeño_de_estudiantes.size(); i++) {
+            if (desempeño_de_estudiantes.get(i).getMateria() == 1) {
+                if (desempeño_de_estudiantes.get(i).getCalificacion() > mayor_nota) {
+                    mayor_nota = desempeño_de_estudiantes.get(i).getCalificacion();
+                    estudiante_mejor = desempeño_de_estudiantes.get(i).getNombre();
+                }
+            }
+        }
+        var nombreestudiante = "";
+        switch (Math.round(estudiante_mejor)) {
+            // Seleccionamos el caso que se debe ejecutar
+            case 1:
+                nombreestudiante = "armando";
+                break;
+            case 2:
+                nombreestudiante = "nicolas";
+                break;
+            case 3:
+                nombreestudiante = "daniel";
+                break;
+            case 4:
+                nombreestudiante = "maria";
+                break;
+            case 5:
+                nombreestudiante = "marcela";
+                break;
+            case 6:
+                nombreestudiante = "alexandra";
+                break;
+        }
+        System.out.println(nombreestudiante);
+
     }
 }
