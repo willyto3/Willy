@@ -30,7 +30,7 @@ def pantallaprincipal():
     pantallasplash.destroy()
     pantallainicial = Tk()
     pantallainicial.title("CALCULADORA")
-    pantallainicial.iconbitmap('C:/Users/willy/Desktop/Proyectos Willy/CalculadoraFull/Health.contrast-black.ico')
+    #pantallainicial.iconbitmap('C:/Users/willy/Desktop/Proyectos Willy/CalculadoraFull/Health.contrast-black.ico')
 
     # Asignamos el alto y el ancho de nuestra aplicacion
     anchoapp2 = 500

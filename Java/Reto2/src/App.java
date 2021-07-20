@@ -9,9 +9,9 @@ public class App {
         // Se llama el metodo question2
         SchoolGradingSystem.question2();
         // Se llama el metodo question3
-        SchoolGradingSystem.question3();
+        System.out.println(SchoolGradingSystem.question3());
         // Se llama el metodo question4
-        SchoolGradingSystem.question4();
+        System.out.println(SchoolGradingSystem.question4());
 
     }
 }

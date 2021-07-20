@@ -175,7 +175,7 @@ public class SchoolGradingSystem {
 
     // Realizamos el metodo question3 Definir la materia con mayor numero de
     // examenes reprobado
-    public static void question3() {
+    public static String question3() {
 
         // Declaramos las constantes Ingles y Historia - Constantes se declaran en
         // Mayuscula Sostenida
@@ -213,18 +213,21 @@ public class SchoolGradingSystem {
         // Comparamos las cantidades de examenes reprobados de cada materia, para
         // definir la materia con mayor número de examenes reprobados
         if (materia_1 >= materia_2 && materia_1 >= materia_3) {
-            System.out.println("idiomas");
+            return "idiomas";
+            //System.out.println("idiomas");
         } else if (materia_2 >= materia_3 && materia_2 > materia_1) {
-            System.out.println("historia");
+            return "historia";
+            //System.out.println("historia");
         } else {
-            System.out.println("literatura");
+            return "literatura";
+            //System.out.println("literatura");
         }
 
     }
 
     // Realizamos el metodo question4 ¿Cuál es el estudiante con el mejor desempeño
     // para la materia idiomas?
-    public static void question4() {
+    public static String question4() {
 
         // Declaramos las constante Ingles - Constantes se declaran en Mayuscula
         // Sostenida
@@ -271,7 +274,7 @@ public class SchoolGradingSystem {
                 break;
         }
         // Imprimimos el nombre del mejor estudiante
-        System.out.println(nombreestudiante);
+        return nombreestudiante;
 
     }
 }
