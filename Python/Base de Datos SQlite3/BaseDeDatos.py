@@ -17,16 +17,13 @@ print("La Tabla USUARIOS fue creada satisfactoriamente")
 
 # Se insertan datos en la tabla usuarios
 conexion.execute('INSERT INTO USUARIOS (ID, NAME) VALUES (1, "WILLY")')
-conexion.execute('INSERT INTO USUARIOS (ID, NAME) VALUES (2, "PAULA")')
-conexion.execute('INSERT INTO USUARIOS (ID, NAME) VALUES (3, "LAUREN")')
-conexion.execute('INSERT INTO USUARIOS (ID, NAME) VALUES (4, "SARA")')
 # Se realizan los cambios
 conexion.commit()
 
 print("Usuario añadido exitosamente") """
 
 """ # Se borra una entrada de la tabla USUARIOS
-conexion.execute('DELETE FROM USUARIOS WHERE ID=4')
+conexion.execute('DELETE FROM USUARIOS WHERE ID=1')
 # Se guardan los cambios
 conexion.commit() """
 
