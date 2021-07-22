@@ -63,6 +63,58 @@ public final class aplicacion {
 
     }
 
+    // GESTION DE CLIENTES
+
+    private static void gestionarClientes(List<Cliente> clientes, List<Factura> facturas) {
+        int opcionSubMenu;
+        Cliente cliente;
+
+        do {
+            funciones.mostrarSubMenu("Clientes");
+            opcionSubMenu = funciones.capturarNumeroEntero("Digite la operacion a Realizar: ");
+            if (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR) {
+                System.out.println("MENSAJE: Debe Digitar un Valor entre 0 y 4.");
+            }
+        } while (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR);
+
+        switch (opcionSubMenu) {
+            case SALIR:
+                break;
+            case CREAR:
+                cliente = crearCliente(clientes);
+                clientes.add(cliente);
+                funciones.continuar();
+                break;
+            case BUSCAR:
+
+                cliente = buscarCliente(clientes);
+
+                if (clientes != null) {
+                    mostrarDatosCliente(cliente);
+
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ACTUALIZAR:
+                cliente = buscarCliente(clientes);
+
+                if (clientes != null) {
+                    actualizarCliente(cliente);
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ELIMINAR:
+                eliminarCliente(clientes, facturas);
+                funciones.continuar();
+                break;
+        }
+
+    }
+
     private static void eliminarCliente(List<Cliente> clientes, List<Factura> facturas) {
         int numeroCedula;
         String cedula;
@@ -231,64 +283,7 @@ public final class aplicacion {
         return null;
     }
 
-    private static Proveedor buscarProveedorPorId(List<Proveedor> proveedores, int id) {
-        for (Proveedor proveedor : proveedores) {
-            if (proveedor.getId() == id) {
-                return proveedor;
-            }
-        }
-        return null;
-    }
-
-    private static void gestionarClientes(List<Cliente> clientes, List<Factura> facturas) {
-        int opcionSubMenu;
-        Cliente cliente;
-
-        do {
-            funciones.mostrarSubMenu("Clientes");
-            opcionSubMenu = funciones.capturarNumeroEntero("Digite la operacion a Realizar: ");
-            if (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR) {
-                System.out.println("MENSAJE: Debe Digitar un Valor entre 0 y 4.");
-            }
-        } while (opcionSubMenu < SALIR || opcionSubMenu > ELIMINAR);
-
-        switch (opcionSubMenu) {
-            case SALIR:
-                break;
-            case CREAR:
-                cliente = crearCliente(clientes);
-                clientes.add(cliente);
-                funciones.continuar();
-                break;
-            case BUSCAR:
-
-                cliente = buscarCliente(clientes);
-
-                if (clientes != null) {
-                    mostrarDatosCliente(cliente);
-
-                } else {
-                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                }
-                funciones.continuar();
-                break;
-            case ACTUALIZAR:
-                cliente = buscarCliente(clientes);
-
-                if (clientes != null) {
-                    actualizarCliente(cliente);
-                } else {
-                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                }
-                funciones.continuar();
-                break;
-            case ELIMINAR:
-                eliminarCliente(clientes, facturas);
-                funciones.continuar();
-                break;
-        }
-
-    }
+    // GESTION DE PROVEEDORES
 
     private static void gestionarProveedores(List<Proveedor> proveedores, List<Factura> facturas) {
         int opcionSubMenu;
@@ -311,21 +306,32 @@ public final class aplicacion {
                 funciones.continuar();
                 break;
             case BUSCAR:
-                /*
-                 * cliente = buscarCliente(clientes);
-                 * 
-                 * if (clientes != null) { mostrarDatosCliente(cliente);
-                 * 
-                 * } else { System.out.
-                 * println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                 * } funciones.continuar(); break; case ACTUALIZAR: cliente =
-                 * buscarCliente(clientes);
-                 * 
-                 * if (clientes != null) { actualizarCliente(cliente); } else { System.out.
-                 * println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
-                 * } funciones.continuar(); break; case ELIMINAR: eliminarCliente(clientes,
-                 * facturas); funciones.continuar(); break;
-                 */
+
+                proveedor = buscarProveedor(proveedores);
+
+                if (proveedor != null) {
+                    mostrarDatosProveedor(proveedor);
+
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ACTUALIZAR:
+                proveedor = buscarProveedor(proveedores);
+
+                if (proveedores != null) {
+                    actualizarProveedor(proveedor);
+                } else {
+                    System.out.println("MENSAJE: No se ha encontrado un cliente con ese número de cedula");
+                }
+                funciones.continuar();
+                break;
+            case ELIMINAR:
+                eliminarProveedor(proveedores, facturas);
+                funciones.continuar();
+                break;
+
         }
 
     }
@@ -367,6 +373,101 @@ public final class aplicacion {
         proveedor = new Proveedor(numeroId, nombres, String.valueOf(numeroTelefono), direccion);
         System.out.printf("Se registró exitosamente el proveedor %s \n", numeroId);
         return proveedor;
+    }
+
+    private static Proveedor buscarProveedorPorId(List<Proveedor> proveedores, int id) {
+        for (Proveedor proveedor : proveedores) {
+            if (proveedor.getId() == id) {
+                return proveedor;
+            }
+        }
+        return null;
+    }
+
+    private static Proveedor buscarProveedor(List<Proveedor> proveedores) {
+        int numeroID;
+
+        do {
+            numeroID = funciones.capturarNumeroEntero("Digite el numero del ID del proveedor");
+            if (numeroID <= 0) {
+                System.out.println("El ID debe ser un número entero positivo");
+                numeroID = 0;
+                continue;
+            }
+
+        } while (numeroID <= 0);
+
+        return buscarProveedorPorId(proveedores, numeroID);
+    }
+
+    private static void mostrarDatosProveedor(Proveedor proveedor) {
+        System.out.println("Datos del proveedor");
+        System.out.println("ID " + proveedor.getId());
+        System.out.println("Nombre " + proveedor.getNombre());
+        System.out.println("Telefono " + proveedor.getTelefono());
+        System.out.println("Dirección " + proveedor.getDireccion());
+
+    }
+
+    private static void actualizarProveedor(Proveedor proveedor) {
+        System.out.println("---3. Actualizar Proveedor---");
+
+        int numeroTelefono;
+
+        String nombre = funciones.capturarCadenaDeCaracteres("Digite el nuevo nombre del proveedor");
+
+        do {
+            numeroTelefono = funciones.capturarNumeroEntero("Digite el nuevo número de telefono del proveedor");
+            if (numeroTelefono <= 0) {
+                System.out.println("El número de telefono debe ser un número entero positivo");
+                numeroTelefono = 0;
+                continue;
+            }
+        } while (numeroTelefono <= 0);
+
+        String direccion = funciones.capturarCadenaDeCaracteres("Digite la nueva dirección del proveedor");
+
+        proveedor.setNombre(nombre);
+        proveedor.setTelefono(String.valueOf(numeroTelefono));
+        proveedor.setDireccion(direccion);
+
+    }
+
+    private static void eliminarProveedor(List<Proveedor> proveedores, List<Factura> facturas) {
+        int numeroID;
+
+        do {
+            numeroID = funciones.capturarNumeroEntero("Digite el numero ID del proveedor");
+            if (numeroID <= 0) {
+                System.out.println("El ID debe ser un número entero positivo");
+                numeroID = 0;
+                continue;
+            }
+
+        } while (numeroID <= 0);
+
+        Proveedor proveedor = buscarProveedorPorId(proveedores, numeroID);
+
+        if (proveedor != null) {
+            Factura factura = buscarFacturaPorID(facturas, numeroID);
+            if (factura == null) {
+                proveedores.remove(proveedor);
+                System.out.printf("MENSAJE: Se ha eliminado el proveedor con el numero de ID %s \n", numeroID);
+            } else {
+                System.out.println("MENSAJE: No se puede eliminar el proveedor. tiene una o mas facturas asignadas");
+            }
+        } else {
+            System.out.println("MENSAJE: No se encontro un proveedor con ese numero de ID");
+        }
+    }
+
+    private static Factura buscarFacturaPorID(List<Factura> facturas, int numeroId) {
+        for (Factura factura : facturas) {
+            if (factura.getIdProveedor() == numeroId) {
+                return factura;
+            }
+        }
+        return null;
     }
 
 }

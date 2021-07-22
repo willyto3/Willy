@@ -7,6 +7,7 @@ import java.util.List;
 public class Factura {
     private static int contadorIds=1;
     private int id;
+    private int idProveedor;
     private Date fecha;
     private String cedulaCliente;
     private double impuestos;
@@ -19,11 +20,12 @@ public class Factura {
         ++contadorIds;
     }
 
-    public Factura(String cedulaCliente, double impuestos) {
+    public Factura(String cedulaCliente, double impuestos, int idProveedor) {
         this();
         fecha = new Date();
         this.cedulaCliente = cedulaCliente;
         this.impuestos = impuestos;
+        this.idProveedor = idProveedor;
     }
 
     public int getId() {
@@ -60,6 +62,14 @@ public class Factura {
 
     public double getTotal() {
         return total;
+    }
+
+    public int getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
     }
 
     public void setTotal(double total) {
