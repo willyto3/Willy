@@ -1,9 +1,11 @@
 package aplicacion;
 
+// Importacion de utilidades
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// Importacion de Clases
 import modelos.Cliente;
 import modelos.Factura;
 import modelos.Producto;
