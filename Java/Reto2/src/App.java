@@ -1,3 +1,7 @@
+//WILLY CORZO
+
+// Reto 2 Curso Programacion Basica MINTIC - Universidad del Norte
+
 // Iniciamos la clase App
 public class App {
     // Clase principal MAIN
@@ -12,6 +16,5 @@ public class App {
         System.out.println(SchoolGradingSystem.question3());
         // Se llama el metodo question4
         System.out.println(SchoolGradingSystem.question4());
-
     }
 }

@@ -1,0 +1,55 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>170</x><y>370</y><w>420</w><h>230</h></coordinates><panel_attributes>Student
+--
+
+--
++ Student() 
++ Student(float nombre, float genero, float materia, float calificacion) 
++ fgetNombre(): float
++ setNombre(float nombre)
++ fgetGenero() : float
++ setGenero(float genero)
++ getMateria() : float
++ setMateria(float materia) 
++ getCalificacion() : float
++ setCalificacion(float calificacion) 
++ loadData(String numeroDeCalificaciones, String cuadroTexto) </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>0</y><w>340</w><h>320</h></coordinates><panel_attributes>GradingSystem
+--
+# float: nombre
+# float: genero
+# float: materia
+# float: calificacion
+--
++ GradingSystem()
++ GradingSystem(nombre, genero, materia, Calificacion)
++ getNombre(): float
++ setNombre()
++ getGenero(): float
++ setGenero()
++ getMateria(): float
++ setMateria()
++ getCalificacion(): float
++ setCalificacion()
++ toString():: string
++ stat1(): int
++ stat2(): double
++ stat3(): string
++ stat4(): string
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>310</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>370</y><w>210</w><h>110</h></coordinates><panel_attributes>SchoolGradingsystem
+--
+
+--
++main(Stage stage)
++start(String args)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>710</x><y>30</y><w>210</w><h>170</h></coordinates><panel_attributes>FXMLVistaControlador
+--
+- ResourceBundle resources;
+- URL location;
+- Button btnCalcular;
+-Label lblSistema;
+- TextField txtFNumero;
+-TextArea txtADatos;
+-TextArea txtACalculos;
+--
++ accionCalcular(ActionEvent event)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>100</y><w>160</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>190</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element></diagram>

@@ -57,7 +57,7 @@ def pantallaprincipal():
     splash.destroy()
     pantallainicial = Tk()
     pantallainicial.title("BASE DE DATOS")
-    #pantallainicial.iconbitmap('D:\Proyectos Willy\Base de Datos/Health.contrast-black.ico')
+    pantallainicial.iconbitmap('icono.ico')
     pantallainicial.geometry("600x600")
 
     # Creando funcion Credito
@@ -149,7 +149,7 @@ def pantallaprincipal():
     def actualizarregistro():
         editor = Tk()
         editor.title("MODIFICAR UN REGISTRO")
-        editor.iconbitmap('C:/Users/willy/Desktop/Proyectos Willy/Base de Datos/Health.contrast-black.ico')
+        editor.iconbitmap('icono.ico')
         editor.geometry("600x600")
 
         # Crear la Base de Datos o Conectarse a una
@@ -239,7 +239,8 @@ def pantallaprincipal():
         c_celular_editor = Entry(editor, width=60, borderwidth=2)
 
         # Creando Botones
-        botonguardar = Button(editor, text="Guardar", padx=20, pady=10, command=guardarregistro)
+        botonguardar = Button(editor, text="Guardar",
+                              padx=20, pady=10, command=guardarregistro)
 
         # Hacer un ciclo para los resultados
         for record in records:
@@ -332,16 +333,21 @@ def pantallaprincipal():
     c_seleccionar = Entry(pantallainicial, width=60, borderwidth=2)
 
     # Creando Botones
-    botonanadir = Button(pantallainicial, text="Añadir", padx=20, pady=10, command=anadirregistro)
-    botonconsulta = Button(pantallainicial, text="Consultar", padx=20, pady=10, command=consultarregistro)
-    botonactualizar = Button(pantallainicial, text="Actualizar", padx=20, pady=10, command=actualizarregistro)
-    botoneliminar = Button(pantallainicial, text="Eliminar", padx=20, pady=10, command=eliminarregistro)
-    botonlimpiar = Button(pantallainicial, text="Limpiar", padx=20, pady=10, command=limpiar)
-    botonsalir = Button(pantallainicial, text="Salir", padx=20, pady=10, command=exit)
+    botonanadir = Button(pantallainicial, text="Añadir",
+                         padx=20, pady=10, command=anadirregistro)
+    botonconsulta = Button(pantallainicial, text="Consultar",
+                           padx=20, pady=10, command=consultarregistro)
+    botonactualizar = Button(
+        pantallainicial, text="Actualizar", padx=20, pady=10, command=actualizarregistro)
+    botoneliminar = Button(pantallainicial, text="Eliminar",
+                           padx=20, pady=10, command=eliminarregistro)
+    botonlimpiar = Button(pantallainicial, text="Limpiar",
+                          padx=20, pady=10, command=limpiar)
+    botonsalir = Button(pantallainicial, text="Salir",
+                        padx=20, pady=10, command=exit)
 
     # # Crear Scrollbar para el cuadro de texto
     # text_scroll = Scrollbar(pantallainicial)
-
 
     # # Creando lista de Botones
     # lista_botones = [boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton0, botonborrar,
@@ -369,15 +375,15 @@ def pantallaprincipal():
     # pantallainicial.bind("<Configure>", resize)
 
     # Mostrando labels en pantalla inicial
-    l_id.grid(row=0, column=0, padx=10, pady=10, sticky = E)
-    l_pnombre.grid(row=1, column=0, padx=10, pady=10, sticky = E)
-    l_snombre.grid(row=2, column=0, padx=10, pady=10, sticky = E)
-    l_papellido.grid(row=3, column=0, padx=10, pady=10, sticky = E)
-    l_sapellido.grid(row=4, column=0, padx=10, pady=10, sticky = E)
-    l_direcion.grid(row=5, column=0, padx=10, pady=10, sticky = E)
-    l_ciudad.grid(row=6, column=0, padx=10, pady=10, sticky = E)
-    l_celular.grid(row=7, column=0, padx=10, pady=10, sticky = E)
-    l_seleccionar.grid(row=11, column=0, padx=10, pady=10, sticky = E)
+    l_id.grid(row=0, column=0, padx=10, pady=10, sticky=E)
+    l_pnombre.grid(row=1, column=0, padx=10, pady=10, sticky=E)
+    l_snombre.grid(row=2, column=0, padx=10, pady=10, sticky=E)
+    l_papellido.grid(row=3, column=0, padx=10, pady=10, sticky=E)
+    l_sapellido.grid(row=4, column=0, padx=10, pady=10, sticky=E)
+    l_direcion.grid(row=5, column=0, padx=10, pady=10, sticky=E)
+    l_ciudad.grid(row=6, column=0, padx=10, pady=10, sticky=E)
+    l_celular.grid(row=7, column=0, padx=10, pady=10, sticky=E)
+    l_seleccionar.grid(row=11, column=0, padx=10, pady=10, sticky=E)
 
     # Mostrando Campos de Ingreso en pantalla inicial
     c_id.grid(row=0, column=1, padx=10, pady=10)
@@ -401,11 +407,13 @@ def pantallaprincipal():
     # # Mostrando Barra de Scroll
     # text_scroll.grid(column=2, rowspand=13)
 
+
 # Creando Label de Ingreso
-l_willy = Label(splash, text="Master Willy Corzo \n 301 789 38 83", font=("Helvetica", 26),anchor=E)
+l_willy = Label(splash, text="Master Willy Corzo \n 301 789 38 83",
+                font=("Helvetica", 26), anchor=E)
 
 # Mostrando labels en pantalla splash
-l_willy.pack(fill =X, side = BOTTOM, ipady=10)
+l_willy.pack(fill=X, side=BOTTOM, ipady=10)
 
 # temporizador de la pantalla Splash
 splash.after(2000, pantallaprincipal)

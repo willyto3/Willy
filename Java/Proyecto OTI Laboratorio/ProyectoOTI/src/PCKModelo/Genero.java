@@ -10,7 +10,7 @@ package PCKModelo;
  * @author CPF2
  */
 public class Genero {
-
+    
     private int idgeneros;
     private String Genero;
 
@@ -29,5 +29,6 @@ public class Genero {
     public void setGenero(String Genero) {
         this.Genero = Genero;
     }
-
+    
+    
 }

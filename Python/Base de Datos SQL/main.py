@@ -39,7 +39,7 @@ def ventanainicial():
   # Inicializamos la ventana inicial
   ventanainicial = Tk()
   ventanainicial.title("BASE DE DATOS GAMER MARKET COLOMBIA")
-  ventanainicial.iconbitmap('C:/Users/willy/Desktop/Proyectos Willy/Base de Datos SQL/IcoGMC.ico')
+  ventanainicial.iconbitmap('IcoGMC.ico')
   ventanainicial.geometry("600x600")
 
   # Llamamos la funcion para conectar a la base de datos MYSQL
@@ -174,7 +174,7 @@ def ventanainicial():
 
 
 # Colocar la imagen de Gamer Market Colombia en la pantalla splash
-miimagen = ImageTk.PhotoImage(Image.open("C:/Users/willy/Desktop/Proyectos Willy/Base de Datos SQL/GamerMarketCol.jpg"))
+miimagen = ImageTk.PhotoImage(Image.open("GamerMarketCol.jpg"))
 lblimagen = Label(image =miimagen)
 lblimagen.pack()
 # temporizador de la pantalla Splash

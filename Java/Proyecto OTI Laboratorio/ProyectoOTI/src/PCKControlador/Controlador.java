@@ -47,7 +47,7 @@ public class Controlador implements ActionListener {
         DefaultTableModel modeloT = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
-                // all cells false
+                //all cells false
                 return false;
             }
         };
@@ -193,8 +193,7 @@ public class Controlador implements ActionListener {
             fc.setDialogTitle("Buscar Foto ó Imagen");
 
             fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-            FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.PNG", "*.jpg", "*.png", "*.JPG", "*.JPEG",
-                    "*.jpeg");
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("*.PNG", "*.jpg", "*.png", "*.JPG", "*.JPEG", "*.jpeg");
             fc.setFileFilter(filtro);
 
             int seleccion = fc.showOpenDialog(fc);

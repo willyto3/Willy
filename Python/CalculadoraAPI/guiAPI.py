@@ -13,19 +13,42 @@ def main():
     # Creamos la funcion ventana inicial Que inicia nuestra aplicacion
     def ventanainicial():
 
+        def crudo():
+            # Funcion para calcular crudo
+            tipo = "crudo"
+            calcular(tipo)
+            print("Se calculo crudo")
+
+        def refinados():
+            # Funcion para calcular refinados
+            tipo = "refinados"
+            calcular(tipo)
+            print("Se calculo refinados")
+
+        def lubricantes():
+            # Funcion para calcular lubricantes
+            tipo = "lubricantes"
+            calcular(tipo)
+            print("Se calculo lubricantes")
+
         def limpiar():
-            # Funcion para limpiar los cuadros de texto en la ventana inicial
+            # Funcion para calcular especiales
             txthidrometro.delete(0, END)
             txttemperatura.delete(0, END)
-            print("Se limpio")
 
-        def calcular():
+        def calcular(tipo):
             # Funcion para calcular el API
             print("Se van a realizar los calculos")
             hidrometro = txthidrometro.get()
             temperatura = txttemperatura.get()
-            resultado = calculos.calculo(hidrometro, temperatura)
-            lblresultado = Label(text=resultado)
+            verificacion = funciones.verificaciones(hidrometro, temperatura)
+            if verificacion == True:
+                resultado = calculos.calculo(hidrometro, temperatura, tipo)
+                api60f = round((141.5 / (resultado / 999.016)) - 131.5, 1)
+                lblapiresultado['text'] = api60f
+                lbldensidad['text'] = round(resultado/999.016, 4)
+            else:
+                pass
 
         # Destruimos la pantalla Splash
         splash.destroy()
@@ -36,8 +59,8 @@ def main():
         ventanaapi.iconbitmap('iconoApi.ico')
 
         # Asignamos el alto y el ancho de nuestra pantalla API
-        anchoapp = 400
-        altoapp = 600
+        anchoapp = 320
+        altoapp = 560
 
         # Obtenemos el ancho y el alto de la pantalla del computador
         anchopantalla = ventanaapi.winfo_screenwidth()
@@ -59,7 +82,7 @@ def main():
 
         # Colocar la imagen de la aplicacion API en la ventana api
         miimagen2 = Image.open("imgApi.png")
-        miimagen3 = miimagen2.resize((380, 380))
+        miimagen3 = miimagen2.resize((320, 320))
         render = ImageTk.PhotoImage(miimagen3)
         lblimagen2 = Label(frame1, image=render)
         lblimagen2.image = render
@@ -68,30 +91,37 @@ def main():
         # Creamos los labels que van en la ventana api
         lblhidrometro = Label(frame2, text="Lectura de Hidrometro")
         lbltemperatura = Label(frame2, text="Lectura de Termometro")
-        lblapi = Label(frame2, text="API Corregido @ 60 f")
+        lblapi = Label(frame2, text="API @ 60 F")
+        lblresultado = Label(frame2, text="Densidad Relativa ")
+        lblapiresultado = Label(frame2, text="Resultado API @ 60 F")
         lbldensidad = Label(frame2, text="Densidad Relativa")
-        lblresultado = Label(frame2)
-        lblresultado2 = Label(frame2)
+        lblblackdog = Label(frame2, text="Design by: Black Dog Solutions")
 
         # Creamos los cuadros de texto que van en la pantalla inicial
         txthidrometro = Entry(frame2)
         txttemperatura = Entry(frame2)
 
         # Creamos los Botones que van en la pantalla inicial
-        btncalcular = Button(frame2, text="Calcular", command=calcular)
+        btncrudo = Button(frame2, text="Crudo", command=crudo)
+        btnrefinados = Button(frame2, text="Refinados", command=refinados)
+        btnlubricantes = Button(
+            frame2, text="Lubricantes", command=lubricantes)
         btnlimpiar = Button(frame2, text="Limpiar", command=limpiar)
 
         # Mostramos los elementos en la ventana api
-        lblhidrometro.grid(row=0, column=0, padx=10, pady=10)
-        lbltemperatura.grid(row=1, column=0, padx=10, pady=10)
-        txthidrometro.grid(row=0, column=2, padx=10, pady=10)
-        txttemperatura.grid(row=1, column=2, padx=10, pady=10)
-        btncalcular.grid(row=2, column=0, padx=10, pady=10)
-        btnlimpiar.grid(row=2, column=2, padx=10, pady=10)
-        lblapi.grid(row=3, column=0, padx=10, pady=10)
-        lblresultado.grid(row=3, column=2, padx=10, pady=10)
-        lbldensidad.grid(row=4, column=0, padx=10, pady=10)
-        lblresultado2.grid(row=4, column=2, padx=10, pady=10)
+        lblhidrometro.grid(row=0, column=0, padx=5, pady=8, columnspan=2)
+        lbltemperatura.grid(row=1, column=0, padx=5, pady=8, columnspan=2)
+        txthidrometro.grid(row=0, column=2, padx=5, pady=8, columnspan=2)
+        txttemperatura.grid(row=1, column=2, padx=5, pady=8, columnspan=2)
+        btncrudo.grid(row=2, column=0, padx=5, pady=8)
+        btnrefinados.grid(row=2, column=1, padx=5, pady=8)
+        btnlubricantes.grid(row=2, column=2, padx=5, pady=8)
+        btnlimpiar.grid(row=2, column=3, padx=5, pady=8)
+        lblapi.grid(row=3, column=0, padx=5, pady=8, columnspan=2)
+        lblresultado.grid(row=4, column=0, padx=5, pady=8, columnspan=2)
+        lblapiresultado.grid(row=3, column=2, padx=5, pady=8, columnspan=2)
+        lbldensidad.grid(row=4, column=2, padx=5, pady=8, columnspan=2)
+        lblblackdog.grid(row=5, column=2, padx=5, pady=8, columnspan=2)
 
     # Creando la pantalla Splash
     splash = Tk()
