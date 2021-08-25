@@ -1,0 +1,18 @@
+{
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.base.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.controls.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.fxml.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.graphics.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.media.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.swing.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx.web.jar",
+    "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx-swt.jar"
+  ],
+  "java.project.sourcePaths": [
+    "Java/Reto 3.2/src",
+    "Java/Reto 3.1/src"
+  ]
+}
