@@ -12,7 +12,6 @@
     "c:\\LibreriasJava\\javafx-sdk-16\\lib\\javafx-swt.jar"
   ],
   "java.project.sourcePaths": [
-    "Java/Reto 3.2/src",
-    "Java/Reto 3.1/src"
+    "Java/Proyecto OTI Laboratorio/ProyectoOTI/src/OTI"
   ]
 }
