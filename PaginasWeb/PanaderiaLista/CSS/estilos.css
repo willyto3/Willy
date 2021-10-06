@@ -109,3 +109,30 @@ h1 {
   background-color: #1d3557;
   cursor: pointer;
 }
+
+.contenedor {
+  width: 98%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.imagenes-inicio {
+  border-radius: 10px;
+  min-height: 150px;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+}
+
+.imagenes-inicio .textos {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
