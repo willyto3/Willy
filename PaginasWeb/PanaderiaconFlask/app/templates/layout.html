@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel='stylesheet' href="{{url_for('static', filename='css/layout.css')}}"/>
+</head>
+
+<body>
+    
+    <header>
+        <img src="{{url_for('static', filename='imagenes/bannerHorizontal.jpg')}}" alt="Banner Horizontal" width="100%" height="170px" />
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/Busqueda">Busqueda</a></li>
+            <li><a href="/Menu">Menu</a></li>
+            <li><a href="/Registro">Registro</a></li>
+            <li><a href="/Login">Login</a></li>
+            <li><a href="/Carrito">Carrito</a></li>
+            <li><a href="/Dashboard">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+</body>
+
+<footer>
+    <h1>AQUI VA EL FOOTER</h1>
+</footer>
+
+</html>
