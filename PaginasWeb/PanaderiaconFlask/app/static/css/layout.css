@@ -46,3 +46,93 @@ h1 {
   font-size: 50px;
 }
 
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.formulario2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 70%;
+  align-items: center;
+}
+
+.label-formulario {
+  display: block;
+  font-weight: 700;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.input-formulario {
+  width: 100%;
+  border: 3px solid transparent;
+  height: 30px;
+  line-height: 30px;
+  border-color: #457b9d;
+  border-radius: 3px;
+}
+
+.input-formulario:hover {
+  border-color: #1d3557;
+  cursor: pointer;
+}
+
+.condiciones2 {
+  height: 30px;
+  line-height: 30px;
+  grid-column: span 2;
+}
+.condiciones2:hover {
+  cursor: pointer;
+}
+
+.botones-formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.botones {
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  font-weight: bold;
+  background-color: #457b9d;
+  color: white;
+}
+
+.botones:hover {
+  background-color: #1d3557;
+  cursor: pointer;
+}
+
+.contenedor {
+  width: 98%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.imagenes-inicio {
+  border-radius: 10px;
+  min-height: 150px;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+}
+
+.imagenes-inicio .textos {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}

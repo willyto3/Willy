@@ -21,6 +21,14 @@ def login():
 def registro():
     return render_template('registro.html')
 
+@app.route('/Busqueda')
+def busqueda():
+    return render_template('busqueda.html')
+
+@app.route('/Menu')
+def menu():
+    return render_template('menu.html')
+
 
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))
