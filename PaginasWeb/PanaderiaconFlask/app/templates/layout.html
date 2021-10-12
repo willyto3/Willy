@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
-    <link rel='stylesheet' href="{{url_for('static', filename='css/layout.css')}}"/>
+    <link rel='stylesheet' href="{{url_for('static', filename='css/layout.css')}}" />
 </head>
 
 <body>
-    
+
     <header>
-        <img src="{{url_for('static', filename='imagenes/bannerHorizontal.jpg')}}" alt="Banner Horizontal" width="100%" height="170px" />
+        <img src="{{url_for('static', filename='imagenes/bannerHorizontal.jpg')}}" alt="Banner Horizontal" width="100%"
+            height="170px" />
     </header>
 
     <nav>
@@ -32,9 +33,19 @@
     {% endblock %}
 
 </body>
+<hr>
 
-<footer>
-    <h1>AQUI VA EL FOOTER</h1>
+<footer class="contenedor">
+
+    <h3>@2021 <br>
+        Great Harvest Bread Company<br>
+        Derechos resevados
+    </h3>
+
+    <div class="imagenes-inicio" style="background-image:url(static/imagenes/instagram.png)"></div>
+
+    <div class="imagenes-inicio" style="background-image:url(static/imagenes/facebook.png)"></div>
+
 </footer>
 
 </html>
