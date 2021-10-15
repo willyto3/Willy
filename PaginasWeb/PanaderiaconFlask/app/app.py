@@ -29,6 +29,10 @@ def busqueda():
 def menu():
     return render_template('menu.html')
 
+@app.route('/Perfil')
+def perfil():
+    return render_template('perfil.html')
+
 
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))

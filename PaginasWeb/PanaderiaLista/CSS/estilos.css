@@ -121,6 +121,18 @@ h1 {
   gap: 10px;
 }
 
+.imagenes {
+  border-radius: 10px;
+  min-height: 150px;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  grid-row: span 4;
+}
+
 .imagenes-inicio {
   border-radius: 10px;
   min-height: 150px;
