@@ -11,11 +11,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
 @app.route('/Login')
 def login():
     return render_template('login.html')
-
 
 @app.route('/Registro')
 def registro():

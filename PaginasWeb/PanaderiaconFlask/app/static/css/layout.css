@@ -52,6 +52,12 @@ h1 {
   gap: 10px;
 }
 
+.formulariousuario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
 .formulario2 {
   display: grid;
   grid-template-columns: 1fr;
@@ -120,9 +126,32 @@ h1 {
   gap: 10px;
 }
 
+.imagenes {
+  border-radius: 10px;
+  min-height: 100px;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  grid-row: span 6;asdasasadsasdadsasadsads
+}
+
 .imagenes-inicio {
   border-radius: 10px;
   min-height: 150px;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+}
+
+.imagenes-footer {
+  border-radius: 10px;
+  min-height: 100px;
   font-weight: bold;
   padding: 20px;
   position: relative;
