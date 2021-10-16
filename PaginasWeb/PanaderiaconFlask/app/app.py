@@ -11,9 +11,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
 @app.route('/Login')
 def login():
     return render_template('login.html')
+
 
 @app.route('/Registro')
 def registro():
@@ -26,10 +28,6 @@ def busqueda():
 @app.route('/Menu')
 def menu():
     return render_template('menu.html')
-
-@app.route('/Perfil')
-def perfil():
-    return render_template('perfil.html')
 
 
 def pagina_no_encontrada(error):
