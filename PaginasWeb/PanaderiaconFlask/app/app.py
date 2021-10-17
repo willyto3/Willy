@@ -36,6 +36,10 @@ def menu():
 def perfil():
     return render_template('perfil.html')
 
+@app.route('/Carrito')
+def carrito():
+    return render_template('carrito.html')
+
 
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))

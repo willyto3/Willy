@@ -1,27 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends './layout.html' %}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Great Harvest Bread Company</title>
-  <link href="CSS/estilos.css" rel="stylesheet" />
-</head>
+{% block title %}
+Inicio
+{% endblock %}
 
-<body>
-  <img src="imagenes/bannerHorizontal.jpg" alt="Banner Horizontal" width="50%" height="50px" />
-  <ul>style="background-color:rgb(131,146,166);
-      <li><a href="Index.html">Inicio</a></li>
-      <li><a href="Index.html">Busqueda</a></li>
-      <li><a href="Menu.html">Menu</a></li>
-      <li><a href="Registro.html">Registro</a></li>
-      <li><a href="Login.html">Login</a></li>
-      <li><a href="Carrito.html">Carrito</a></li>
-      <li><a href="Dashboard.html">Dashboard</a></li>
-  </ul>
+{% block body %}
 
-  <h1>Carrito</h1>
-</body>
+<main>
 
-</html>
+    <h1>Carrito de Compras</h1>
+
+    <div class="contenedorcarrito">
+
+      <div class="imagenes-inicio" style="background-image:url(static/imagenes/ImagenPan.jpg)">
+        <div class="textos">
+          <h3>Pan de Sal</h3>
+        </div>
+      </div>
+
+      <form method="POST" class="formulario">
+
+        <div class="grupo-formulario">
+          <label for="cantidad" class="label-formulario">Cantidad de Productos:</label>
+          <div>
+            <input class="input-formulario" type="number" id="cantidad" name="cantidad" 
+              required="true" />
+          </div>
+        </div> <br>
+
+      </form>
+
+      <div class="imagenes-inicio" style="background-image:url(static/imagenes/ImagenPan.jpg)">
+        <div class="textos">
+          <h3>Pan de Sal</h3>
+        </div>
+      </div>
+
+      <form method="POST" class="formulario">
+
+        <div class="grupo-formulario">
+          <label for="cantidad" class="label-formulario">Cantidad de Productos:</label>
+          <div>
+            <input class="input-formulario" type="number" id="cantidad" name="cantidad" 
+              required="true" />
+          </div>
+        </div> <br>
+
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+      
+  
+  
+    </div>
+</main>
+
+{% endblock %}
