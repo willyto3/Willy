@@ -51,6 +51,7 @@ def comentarios():
 @app.route('/Usuarios')
 def usuarios():
     return render_template('usuarios.html')  
+    
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))
 
