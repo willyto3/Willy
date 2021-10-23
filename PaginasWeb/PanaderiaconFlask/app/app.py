@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask.helpers import url_for
 from flask.wrappers import Request
@@ -7,6 +7,7 @@ from models import *
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'Es un Secreto'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\Prueba.db'
 db.init_app(app)
 
@@ -21,13 +22,20 @@ def index():
 @app.route('/crearregistro', methods=['POST'])
 def create():
 
-    persona = Personas(nombre=request.form['nombre'], apellido=request.form['apellido'],
+    try:       
+        
+        persona = Personas(nombre=request.form['nombre'], apellido = request.form['apellido'],
                     direccion=request.form['direccion'], celular=request.form['celular'],
                     email=request.form['email'], fechanacimiento=request.form['fechanacimiento'],
                     contrasena=request.form['contrasena'], vercontrasena=request.form['vercontrasena'])
-    db.session.add(persona)
-    db.session.commit()
-    return render_template('registro.html')
+        db.session.add(persona)
+        db.session.commit()
+        flash('Registro creado exitosamente')
+        return render_template('registro.html')
+
+    except Exception as e:
+        flash("No se realizo el registro del Usuario")
+        return render_template('registro.html')
 
 
 @app.route('/Login')
