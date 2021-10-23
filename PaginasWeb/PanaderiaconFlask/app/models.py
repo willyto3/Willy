@@ -15,3 +15,13 @@ class Personas(db.Model):
     fechanacimiento = db.Column(db.String(200))
     contrasena = db.Column(db.String(200), nullable=True)
     vercontrasena = db.Column(db.String(200), nullable=True)
+
+class pedidos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    idpersona = db.Column(db.Integer, nullable=True)
+    fecha = db.Column(db.String(200), nullable=True)
+    hora = db.Column(db.String(200), nullable=True)
+    direccion = db.Column(db.String(200), nullable=True)
+    estado = db.Column(db.String(200), nullable=True)
+    total = db.Column(db.String(200), nullable=True)
+    productos = db.Column(db.String(200), nullable=True)
