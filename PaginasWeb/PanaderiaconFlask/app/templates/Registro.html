@@ -10,7 +10,9 @@ Registro
 
   <h1>Registro</h1>
 
-  <form method="POST" class="formulario">
+
+
+  <form method="POST" class="formulario" action="/creartarea">
 
     <div class="grupo-formulario">
       <label for="nombre" class="label-formulario">Nombre:</label>
@@ -20,15 +22,12 @@ Registro
       </div>
     </div> <br>
 
-
     <div class="grupo-formulario">
       <label for="apellido" class="label-formulario">Apellido:</label>
       <div>
-        <input type="text" class="input-formulario" id="apellido" name="apellido" placeholder="Ingresa tu apellido"
-          required="true" />
+        <input type="text" class="input-formulario" id="apellido" name="apellido" placeholder="Ingresa tu apellido" />
       </div>
     </div> <br>
-
 
     <div class="grupo-formulario">
       <label for="direccion" class="label-formulario">Direccion:</label>
@@ -37,6 +36,8 @@ Registro
           class="input-formulario" />
       </div>
     </div> <br>
+
+
 
     <div class="grupo-formulario">
       <label for="celular" class="label-formulario">Celular:</label>
@@ -95,6 +96,7 @@ Registro
     </div>
 
   </form>
+
 </main>
 
 {% endblock %}

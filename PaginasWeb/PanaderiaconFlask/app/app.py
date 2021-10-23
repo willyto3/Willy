@@ -1,12 +1,22 @@
-from flask import Flask, render_template
-from flask.helpers import url_for
-import sqlalchemy
-from werkzeug.utils import redirect
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from flask.helpers import url_for
+from flask.wrappers import Request
+from werkzeug.utils import redirect
+
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///databases/Datosclientes.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\Prueba.db'
 db = SQLAlchemy(app)
+
+
+class Personas(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(200), nullable=True)
+    apellido = db.Column(db.String(200))
+    direccion = db.Column(db.String(200))
+    celular=db.Column(db.Integer)
 
 
 # Paginas
@@ -14,6 +24,15 @@ db = SQLAlchemy(app)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/creartarea', methods=['POST']) 
+def create():
+    
+    persona = Personas(nombre=request.form['nombre'], apellido=request.form['apellido'], direccion=request.form['direccion'], celular=request.form['celular'])
+    db.session.add(persona)
+    db.session.commit()
+    return render_template('registro.html')
 
 
 @app.route('/Login')
