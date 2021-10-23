@@ -78,7 +78,11 @@ def usuarios():
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))
 
+def error_de_servidor(error):
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.register_error_handler(404, pagina_no_encontrada)
+    app.register_error_handler(500, error_de_servidor)
     app.run(debug=True, port=5000)
