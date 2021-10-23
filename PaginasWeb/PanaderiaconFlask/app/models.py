@@ -15,3 +15,4 @@ class Personas(db.Model):
     fechanacimiento = db.Column(db.String(200))
     contrasena = db.Column(db.String(200), nullable=True)
     vercontrasena = db.Column(db.String(200), nullable=True)
+
