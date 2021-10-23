@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask.helpers import url_for
 from flask.wrappers import Request
 from werkzeug.utils import redirect
+
 from models import *
 
 
@@ -22,21 +23,24 @@ def index():
 @app.route('/crearregistro', methods=['POST'])
 def create():
 
-    try:       
-        
-        persona = Personas(nombre=request.form['nombre'], apellido = request.form['apellido'],
-                    direccion=request.form['direccion'], celular=request.form['celular'],
-                    email=request.form['email'], fechanacimiento=request.form['fechanacimiento'],
-                    contrasena=request.form['contrasena'], vercontrasena=request.form['vercontrasena'])
-        db.session.add(persona)
-        db.session.commit()
-        flash('Registro creado exitosamente')
-        return render_template('registro.html')
+    if request.form['password_hash'] == request.form['password_hash2']:
+        try:       
+            pw_hash= generate_password_hash(request.form['password_hash'], "sha256")
+            persona = Personas(nombre=request.form['nombre'], apellido = request.form['apellido'],
+                        direccion=request.form['direccion'], celular=request.form['celular'],
+                        email=request.form['email'], fechanacimiento=request.form['fechanacimiento'],
+                        password_hash=pw_hash)
+            db.session.add(persona)
+            db.session.commit()
+            flash('Registro creado exitosamente')
+            return render_template('registro.html')
 
-    except Exception as e:
-        flash("No se realizo el registro del Usuario")
+        except Exception as e:
+            flash("No se realizo el registro del Usuario")
+            return render_template('registro.html')
+    else:
+        flash("Las Contraseñas deben ser iguales")
         return render_template('registro.html')
-
 
 @app.route('/Login')
 def login():
