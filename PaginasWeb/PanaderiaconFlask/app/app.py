@@ -10,15 +10,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\Prueba.db'
 db.init_app(app)
 
-# Paginas
 
+# Creacion de las Paginas
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/creartarea', methods=['POST'])
+@app.route('/crearregistro', methods=['POST'])
 def create():
 
     persona = Personas(nombre=request.form['nombre'], apellido=request.form['apellido'],
