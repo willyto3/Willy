@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 # Modelo para la base de datos Prueba tabla 'Persona'
+
+
 class Personas(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(200), nullable=True)
@@ -11,6 +13,5 @@ class Personas(db.Model):
     celular = db.Column(db.Integer, nullable=True)
     email = db.Column(db.String(200), nullable=True)
     fechanacimiento = db.Column(db.String(200))
-    contrasena=db.Column(db.String(200), nullable=True)
-    vercontrasena=db.Column(db.String(200), nullable=True)
-
+    contrasena = db.Column(db.String(200), nullable=True)
+    vercontrasena = db.Column(db.String(200), nullable=True)
