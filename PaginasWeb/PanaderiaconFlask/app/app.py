@@ -49,7 +49,7 @@ def ingreso():
     try:
         persona = Personas.query.filter_by(celular=request.form['celular']).first()
         if persona and check_password_hash(persona.password_hash, request.form['contrasena']):
-            return render_template('usuarios.html')
+            return render_template('perfil.html')
         else:
             flash('Usuario o Contraseña incorrectos')
             return render_template('login.html')
