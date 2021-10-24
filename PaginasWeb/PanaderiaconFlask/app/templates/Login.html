@@ -7,10 +7,15 @@ Login
 {% block body %}
 <main>
 
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
 
   <h1>Login</h1>
 
-  <form method="POST" class="formulario2">
+  <form method="POST" class="formulario2" action="/ingresar">
 
     <div class="grupo-formulario">
       <label for="celular" class="label-formulario">Celular:</label>
@@ -42,4 +47,3 @@ Login
   </form><br><br><br><br><br><br><br>
 </main>
 {% endblock %}
-

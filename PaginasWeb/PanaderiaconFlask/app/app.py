@@ -42,6 +42,21 @@ def create():
         flash("Las Contraseñas deben ser iguales")
         return render_template('registro.html')
 
+
+@app.route('/ingresar', methods=['POST'])
+def ingreso():
+
+    try:
+        persona = Personas.query.filter_by(celular=request.form['celular']).first()
+        if persona and check_password_hash(persona.password_hash, request.form['contrasena']):
+            return render_template('usuarios.html')
+        else:
+            flash('Usuario o Contraseña incorrectos')
+            return render_template('login.html')
+    except Exception as e:
+        flash('Usuario o Contraseña incorrectos')
+        return render_template('login.html')
+
 @app.route('/Login')
 def login():
     return render_template('login.html')
