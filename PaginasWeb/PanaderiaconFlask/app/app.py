@@ -3,14 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask.helpers import url_for
 from flask.wrappers import Request
 from werkzeug.utils import redirect
-
 from models import *
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Es un Secreto'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\Prueba.db'
-db.init_app(app)
+
+db = SQLAlchemy(app)
 
 
 # Creacion de las Paginas
