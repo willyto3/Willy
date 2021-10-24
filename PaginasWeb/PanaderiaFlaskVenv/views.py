@@ -1,18 +1,7 @@
-from flask import Flask, render_template, request, flash
-from flask_sqlalchemy import SQLAlchemy
-from flask.helpers import url_for
-from flask.wrappers import Request
-from werkzeug.utils import redirect
-
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Es un Secreto'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database\Prueba.db'
-
-db = SQLAlchemy(app)
-
+from flask import render_template, request, redirect, url_for, flash
+from werkzeug.security import generate_password_hash, check_password_hash
+from app import *
 from models import *
-
 
 # Creacion de las Paginas
 
@@ -108,9 +97,3 @@ def pagina_no_encontrada(error):
 
 def error_de_servidor(error):
     return redirect(url_for('index'))
-
-
-if __name__ == '__main__':
-    app.register_error_handler(404, pagina_no_encontrada)
-    app.register_error_handler(500, error_de_servidor)
-    app.run(debug=True, port=5000)

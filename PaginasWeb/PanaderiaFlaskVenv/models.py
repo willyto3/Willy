@@ -1,8 +1,10 @@
-from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 # Modelo para la base de datos Prueba tabla 'Persona'
 class Personas(db.Model):
+    __tablename__ = 'personas'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(200), nullable=True)
     apellido = db.Column(db.String(200), nullable=True)
@@ -24,7 +26,3 @@ class Personas(db.Model):
     
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
-
-
-

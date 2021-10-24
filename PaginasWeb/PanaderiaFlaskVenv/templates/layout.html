@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel='stylesheet' href="{{url_for('static', filename='css/layout.css')}}" />
+    <style>
+        body {
+            background-color: whitesmoke;
+            animation-direction: normal;
+        }
+    </style>
+</head>
+
+{%include 'templates/navbar.html'%}
+
+<body>
+
+    
+
+        {% block body %}
+
+        {% endblock %}
+
+        <script src = "{{url_for('static', filename='js/app.js')}}"></script>
+
+</body>
+
+<footer>
+    <div>
+        <ul class="horizontal-list" aling="rigt">
+            <li><a><img src="{{url_for('static', filename='imagenes/facebookicono.png')}}" width="35" height="35"
+                        class="x-footer-social-icons facebook" align="center"></a></li>
+            <li><a><img src="{{url_for('static', filename='imagenes/instagramIco.PNG')}}" width="35" height="35"
+                        class="x-footer-social-icons facebook" align='center'></a></li>
+            <li><a><img src="{{url_for('static', filename='imagenes/whatsappIco.png')}}" width="35" height="35"
+                        class="x-footer-social-icons facebook" align='center'></a></li>
+        </ul>
+    </div>
+</footer>
+
+
+
+</html>
