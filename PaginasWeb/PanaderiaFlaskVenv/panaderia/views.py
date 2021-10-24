@@ -1,13 +1,13 @@
 from flask import render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from app import *
-from models import *
+from panaderia.models import *
+from panaderia import app
 
 # Creacion de las Paginas
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 
 @app.route('/crearregistro', methods=['POST'])
