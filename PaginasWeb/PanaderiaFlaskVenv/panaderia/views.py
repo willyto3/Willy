@@ -5,6 +5,7 @@ from panaderia import app
 
 # Creacion de las Paginas
 
+
 @app.route('/')
 def index():
     return render_template('/index.html')
@@ -14,12 +15,13 @@ def index():
 def create():
 
     if request.form['password_hash'] == request.form['password_hash2']:
-        try:       
-            pw_hash= generate_password_hash(request.form['password_hash'], "sha256")
-            persona = Personas(nombre=request.form['nombre'], apellido = request.form['apellido'],
-                        direccion=request.form['direccion'], celular=request.form['celular'],
-                        email=request.form['email'], fechanacimiento=request.form['fechanacimiento'],
-                        password_hash=pw_hash)
+        try:
+            pw_hash = generate_password_hash(
+                request.form['password_hash'], "sha256")
+            persona = Personas(nombre=request.form['nombre'], apellido=request.form['apellido'],
+                               direccion=request.form['direccion'], celular=request.form['celular'],
+                               email=request.form['email'], fechanacimiento=request.form['fechanacimiento'],
+                               password_hash=pw_hash)
             db.session.add(persona)
             db.session.commit()
             flash('Registro creado exitosamente')
@@ -37,7 +39,8 @@ def create():
 def ingreso():
 
     try:
-        persona = Personas.query.filter_by(celular=request.form['celular']).first()
+        persona = Personas.query.filter_by(
+            celular=request.form['celular']).first()
         if persona and check_password_hash(persona.password_hash, request.form['contrasena']):
             return render_template('perfil.html')
         else:
@@ -46,6 +49,7 @@ def ingreso():
     except Exception as e:
         flash('Usuario o Contraseña incorrectos')
         return render_template('login.html')
+
 
 @app.route('/Login')
 def login():
@@ -94,6 +98,7 @@ def usuarios():
 
 def pagina_no_encontrada(error):
     return redirect(url_for('index'))
+
 
 def error_de_servidor(error):
     return redirect(url_for('index'))
