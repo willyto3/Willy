@@ -16,8 +16,7 @@
 </head>
 
 <header>
-    <img src="{{url_for('static', filename='imagenes/bakery4.png')}}" alt="Banner Horizontal" width="100%"
-        height="170px" />
+    <img src="{{url_for('static', filename='imagenes/bakery4.png')}}" alt="Banner Horizontal" width="100%" height="170px" />
 </header>
 
 <div>
@@ -33,31 +32,30 @@
         </ul>
     </nav>
 
-<body>
-
-    
-
-        {% block body %}
-
-        {% endblock %}
-
-        <script src = "{{url_for('static', filename='js/app.js')}}"></script>
-
-</body>
-
-<footer>
-    <div>
-        <ul class="horizontal-list" aling="rigt">
-            <li><a><img src="{{url_for('static', filename='imagenes/facebookicono.png')}}" width="35" height="35"
-                        class="x-footer-social-icons facebook" align="center"></a></li>
-            <li><a><img src="{{url_for('static', filename='imagenes/instagramIco.PNG')}}" width="35" height="35"
-                        class="x-footer-social-icons facebook" align='center'></a></li>
-            <li><a><img src="{{url_for('static', filename='imagenes/whatsappIco.png')}}" width="35" height="35"
-                        class="x-footer-social-icons facebook" align='center'></a></li>
-        </ul>
-    </div>
-</footer>
+    <body>
 
 
+
+        {% block body %} {% endblock %}
+
+        <script src="{{url_for('static', filename='js/app.js')}}"></script>
+
+    </body>
+
+    <footer>
+        <div>
+            <ul class="horizontal-list" aling="rigt">
+                <li>
+                    <a><img src="{{url_for('static', filename='imagenes/facebookicono.png')}}" width="35" height="35" class="x-footer-social-icons facebook" align="center"></a>
+                </li>
+                <li>
+                    <a><img src="{{url_for('static', filename='imagenes/instagramIco.PNG')}}" width="35" height="35" class="x-footer-social-icons facebook" align='center'></a>
+                </li>
+                <li>
+                    <a><img src="{{url_for('static', filename='imagenes/whatsappIco.png')}}" width="35" height="35" class="x-footer-social-icons facebook" align='center'></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
 </html>
