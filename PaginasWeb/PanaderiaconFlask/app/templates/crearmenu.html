@@ -1,0 +1,54 @@
+{% extends './layout.html' %}
+
+{% block title %}
+Crear Menu
+{% endblock %}
+
+{% block body %}
+<main>
+
+  {% for message in get_flashed_messages() %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+
+  <h1>Crear un Menu</h1>
+
+  <form method="POST" class="formulario2" action="/ingresar">
+
+    <div class="grupo-formulario">
+      <label for="Nombre del Plato" class="label-formulario">Nombre del Plato:</label>
+      <div>
+        <input type="text" id="nombredelplato" name="Nombredelplato" placeholder="Ingresa Nombre para el Plato" required="true"
+          class="input-formulario" />
+      </div>
+    </div>
+
+
+    <div class="grupo-formulario">
+      <label for="Precio" class="label-formulario">Precio:</label>
+      <div>
+        <input type="text" id="precio" name="precio" placeholder="Ingresa el Precio" required="true"
+          class="input-formulario" />
+      </div>
+    </div> <br><br>
+
+    <div class="grupo-formulario">
+        <label for="Descripcion" class="label-formulario">Descripción:</label>
+        <div>
+          <input type="text" id="descripcion" name="descripcion" placeholder="Ingresa la Descripción" required="true"
+            class="input-formulario" />
+        </div>
+      </div> <br><br>
+
+    <div class="botones-formulario">
+      <input type="submit" class="botones" value="Guardar" />
+    </div>
+
+    <div class="botones-formulario">
+      <input type="reset" class="botones" />
+    </div> <br><br><br>
+</form><br><br><br><br><br><br><br>
+</main>
+{% endblock %}    
