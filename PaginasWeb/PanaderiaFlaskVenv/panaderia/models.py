@@ -4,7 +4,22 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # MODELOS
 
+
+# Modelo para la base de datos Prueba tabla 'Productos'
+class Platos(db.Model):
+    __tablename__ = 'platos'
+    idproducto = db.Column(db.Integer, primary_key=True)
+    nombreplato = db.Column(db.String(510), nullable=True)
+    precioplato = db.Column(db.Integer, nullable=True)
+    descripcionplato = db.Column(db.String(200))
+    imagenplato = db.Column(db.String(200), nullable=False)
+    nombreimagenplato = db.Column(db.String(200), nullable=False)
+    mimetypeplato = db.Column(db.String(200), nullable=False)
+
+
 # Modelo para la base de datos Prueba tabla 'Persona'
+
+
 class Personas(db.Model):
     __tablename__ = 'personas'
     id = db.Column(db.Integer, primary_key=True)
@@ -14,7 +29,10 @@ class Personas(db.Model):
     celular = db.Column(db.Integer, nullable=True)
     email = db.Column(db.String(200), nullable=True)
     fechanacimiento = db.Column(db.String(200))
-    idrol=db.Column(db.Integer, db.ForeignKey("roles.idrol"))
+    imagenpersona = db.Column(db.String(200), nullable=False)
+    nombreimagenpersona = db.Column(db.String(200), nullable=False)
+    mimetypepersona = db.Column(db.String(200), nullable=False)
+    #idrol = db.Column(db.Integer, db.ForeignKey("roles.idrol"))
 
     # Genera un hash de la contraseña
     password_hash = db.Column(db.String(200), nullable=True)
@@ -31,16 +49,10 @@ class Personas(db.Model):
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return "<Personas %r>" %self.nombre
+        return "<Personas %r>" % self.nombre
 
 
-# Modelo para la base de datos Prueba tabla 'Productos'
-class Platos(db.Model):
-    __tablename__ = 'platos'
-    idproducto = db.Column(db.Integer, primary_key=True)
-    nombreproducto = db.Column(db.String(50), nullable=True)
-    precioproducto = db.Column(db.Integer, nullable=True)
-    descripcionproducto = db.Column(db.String(200))
+
 
 
 # Modelo para la base de datos Panaderia tabla 'Facturas'
@@ -54,5 +66,5 @@ class Facturas(db.Model):
 class Roles(db.Model):
     __tablename__ = 'roles'
     idrol = db.Column(db.Integer, primary_key=True)
-    rol=db.Column(db.String(10), unique=True, nullable=True)
-    personas =db.relationship("Persona", backref="Roles")
+    rol = db.Column(db.String(10), unique=True, nullable=True)
+    #personas = db.relationship("Persona", backref="Roles")

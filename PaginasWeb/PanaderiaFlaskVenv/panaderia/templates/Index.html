@@ -8,48 +8,15 @@
 
     <div class="contenedor">
 
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/ImagenPan.jpg)">
+    {%for plato in platos%}
+
+        <div class="imagenes-inicio" style="background-image:url({{plato.imagenplato}})">
             <div class="textos">
-                <h3>Pan de Sal</h3>
+                <h3>{{plato.nombreplato}}</h3>
+                <h3>{{plato.precioplato}}</h3>
             </div>
         </div>
-
-
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/empanadas.jpg)">
-            <div class="textos">
-                <h3>Empanadas</h3>
-            </div>
-        </div>
-
-
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/huevos.jpg)">
-            <div class="textos">
-                <h3>Huevos Horneados</h3>
-            </div>
-        </div>
-
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/calzone.jpg)">
-            <div class="textos">
-                <h3>Calzone</h3>
-            </div>
-        </div>
-
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/pizza.jpg)">
-            <div class="textos">
-                <h3>Pizza</h3>
-            </div>
-        </div>
-
-        <div class="imagenes-inicio" style="background-image:url(static/imagenes/tartara.jpg)">
-            <div class="textos">
-                <h3>Tartara</h3>
-            </div>
-        </div>
-
-    </div>
-    <div class="botones-formulario">
-        <input type="submit" class="botones" value="Administrador" href="/Administrador" />
-    </div>
+    {% endfor %}
 
 </main>
 {% endblock %}
