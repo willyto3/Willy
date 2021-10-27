@@ -1,36 +1,32 @@
 from flask import render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo
 from werkzeug.utils import secure_filename
 from panaderia.models import *
 from panaderia import app
+import os
 
 # Creacion de las Paginas
 
 # Pagina Principal
-
-
 @app.route('/')
 def index():
     platos=Platos.query.all()
     return render_template('/index.html', platos=platos)
 
 # Pagina de Inicio de Sesion
-
-
 @app.route('/Login')
 def login():
     return render_template('login.html')
 
 # Pagina de Registro
-
-
 @app.route('/Registro')
 def registro():
     return render_template('registro.html')
 
 # Pagina de Creacion de Platos
-
-
 @app.route('/CrearPlatos')
 def crearplatos():
     return render_template('crearplatos.html')
@@ -43,7 +39,8 @@ def busqueda():
 
 @app.route('/Menu')
 def menu():
-    return render_template('menu.html')
+    platos=Platos.query.all()
+    return render_template('menu.html', platos=platos)
 
 
 @app.route('/Perfil')
@@ -132,17 +129,14 @@ def crearplato():
     imagen = request.files['imagenplato']
 
     filename = secure_filename(imagen.filename)
-    mimetype = imagen.mimetype
+    imagen.save(os.path.join(app.config["UPLOAD_FOLDER"],filename))
     
-    #try:
-
-    plato = Platos(nombreplato=request.form['nombreplato'], precioplato=request.form['precioplato'], descripcionplato=request.form['descripcionplato'], imagenplato=imagen.read(),
-            nombreimagenplato=filename, mimetypeplato=mimetype)
+    plato = Platos(nombreplato=request.form['nombreplato'], precioplato=request.form['precioplato'], descripcionplato=request.form['descripcionplato'], nombreimagenplato=filename)
     db.session.add(plato)
     db.session.commit()
     flash('Registro creado exitosamente')
     return render_template('crearplatos.html')
 
-    #except Exception as e:
-    flash("No se realizo el registro del plato")
-    return render_template('crearplatos.html')
+# CLASES DE FORMULARIO
+
+

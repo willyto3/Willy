@@ -10,13 +10,20 @@
 
     {%for plato in platos%}
 
-        <div class="imagenes-inicio" style="background-image:url({{plato.imagenplato}})">
-            <div class="textos">
-                <h3>{{plato.nombreplato}}</h3>
-                <h3>{{plato.precioplato}}</h3>
+        <div class="imagenes-inicio">
+            <div class="imagen">
+                <img src="./static/uploads/{{ plato.nombreimagenplato }}" alt="">
+            </div>
+            <div class="info">
+                <h2>{{plato.nombreplato}}</h2>
+                <p>{{plato.descripcionplato}}</p>
             </div>
         </div>
+
     {% endfor %}
+
+
+
 
 </main>
 {% endblock %}

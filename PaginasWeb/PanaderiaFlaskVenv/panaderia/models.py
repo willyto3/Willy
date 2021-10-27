@@ -1,6 +1,8 @@
 from sqlalchemy.orm import backref
 from panaderia import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from datetime import datetime
 
 # MODELOS
 
@@ -12,15 +14,13 @@ class Platos(db.Model):
     nombreplato = db.Column(db.String(510), nullable=True)
     precioplato = db.Column(db.Integer, nullable=True)
     descripcionplato = db.Column(db.String(200))
-    imagenplato = db.Column(db.String(200), nullable=False)
     nombreimagenplato = db.Column(db.String(200), nullable=False)
-    mimetypeplato = db.Column(db.String(200), nullable=False)
-
+    
 
 # Modelo para la base de datos Prueba tabla 'Persona'
 
 
-class Personas(db.Model):
+class Personas(db.Model, UserMixin):
     __tablename__ = 'personas'
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(200), nullable=True)
@@ -29,9 +29,6 @@ class Personas(db.Model):
     celular = db.Column(db.Integer, nullable=True)
     email = db.Column(db.String(200), nullable=True)
     fechanacimiento = db.Column(db.String(200))
-    imagenpersona = db.Column(db.String(200), nullable=False)
-    nombreimagenpersona = db.Column(db.String(200), nullable=False)
-    mimetypepersona = db.Column(db.String(200), nullable=False)
     #idrol = db.Column(db.Integer, db.ForeignKey("roles.idrol"))
 
     # Genera un hash de la contraseña
@@ -59,7 +56,7 @@ class Personas(db.Model):
 class Facturas(db.Model):
     __tablename__ = 'facturas'
     idfactura = db.Column(db.Integer, primary_key=True)
-    fechafactura = db.Column(db.String(50), nullable=True)
+    fechafactura = db.Column(db.Datetime, nullable=True, default =datetime.utcnow)
 
 
 # Modelo para la base de datos Panaderia tabla 'Roles'

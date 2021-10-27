@@ -26,8 +26,19 @@
             <li><a href="/">Inicio</a></li>
             <li><a href="/Busqueda">Busqueda</a></li>
             <li><a href="/Menu">Menu</a></li>
+
+            {% if usuarioregistrado == null %}
+            
             <li><a href="/Registro">Registro</a></li>
             <li><a href="/Login">Login</a></li>
+
+            {% else %}
+            
+            <li><a href="/Logout">{{persona.nombre}}</a></li>
+            <li><a href="/Logout">Logout</a></li>
+
+            {% endif %}
+
             <li><a href="/Carrito">Carrito</a></li>
         </ul>
     </nav>
@@ -44,7 +55,7 @@
 
     <footer>
         <div>
-            <ul class="horizontal-list" aling="rigt">
+            <ul class="horizontal-list" aling="rigth">
                 <li>
                     <a><img src="{{url_for('static', filename='imagenes/facebookicono.png')}}" width="35" height="35" class="x-footer-social-icons facebook" align="center"></a>
                 </li>
