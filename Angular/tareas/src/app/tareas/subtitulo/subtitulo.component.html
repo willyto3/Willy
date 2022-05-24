@@ -1,0 +1,9 @@
+<h2 class="subtitle">Listado de Tareas</h2>
+
+<!-- NOTE: tareas > 0 -->
+<div *ngIf="getTareas" class="notification is-danger">
+  Número de Tareas Pendientes: {{ getTareas }}
+</div>
+
+<!--- NOTE: tareas = 0 -->
+<div *ngIf="!getTareas" class="notification is-success">No hay tareas pendientes, disfruta tu dia.</div>

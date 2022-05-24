@@ -1,0 +1,8 @@
+<p>{{ dark ? "Dark Mode" : "Light Mode" }}</p>
+<button (click)="chageMode()" class="btn btn-info">Change Mode</button>
+
+<hr />
+
+<!-- TODO: Pendiente colocar decimales -->
+
+<h1>Temperatura : {{ temperatura | temperature: tipo }} </h1>

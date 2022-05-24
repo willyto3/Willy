@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Formularios con JavaScript</title>
+    </head>
+    <body onload ="entrar()">
+        <h1 id="titulo" onmouseover="sobremouse(this)" onmouseout="salirmouse(this)">Titulo</h1>
+        <h1 onmousedown="sobremouse(this)" onmouseup="salirmouse(this)">Titulo 2</h1>
+        <h1 onclick="cambiarColor(this);">Titulo 3</h1>
+        <form id="formulario">
+        <form id="formulario">
+            Nombre: <input type="text" name="nombre" value="Juan" onchange="convertir(this)"/>
+            <br />
+            <br />
+            Apellido: <input type="text" name="apellido" value="Perez" onfocus="cambiarFondo(this)" onblur="regresar(this)"/>
+            <br />
+            <br />
+            Dirección: <input type="text" name="direccion" value="Barranquilla" id="direccion" />
+            <br />
+            <br />
+        </form>
+        <button onclick="mostrarValores()">Mostrar</button>
+        <br />
+        <br />
+        <div id="valores"></div>
+
+        <img
+            id="imagen"
+            src="http://globalmentoring.com.mx/imagenes/javascript.png"
+        />
+        <button onclick="mostrar()">Mostrar</button>
+
+        <script>
+            function cambiarFondo(cambioFondo){
+                cambioFondo.style.background = "blue";
+            }
+            function regresar(elemento){
+                elemento.style.background = "white";
+            }
+            function sobremouse(elemento){
+                elemento.style.color = "green";
+            }
+            function salirmouse(elemento){
+                elemento.style.color = "black";
+            }
+            function convertir(nombreInput){
+                nombreInput.value = nombreInput.value.toUpperCase();
+            }
+
+            function entrar(){
+                alert("Entrando a la pagina Web")
+                let texto = "";
+                if(navigator.cookieEnabled){
+                    texto ="Cookies estan Habilitadas";
+                }else{
+                    texto = "Cookies no estan Habilitadas";
+                }
+                document.getElementById("valores").innerHTML = texto;
+            }
+            
+            function mostrarValores() {
+                let formulario = document.forms["formulario"];
+                let nombre = formulario["nombre"];
+                let apellido = formulario["apellido"];
+                let texto = nombre.value + " " + apellido.value;
+                document.getElementById("valores").innerHTML = texto;
+                document.getElementById("titulo").innerHTML = "Prueba";
+            }
+
+            function mostrar() {
+                document.getElementById("imagen").src =
+                    "http://globalmentoring.com.mx/imagenes/html5.png";
+                document.getElementById("titulo").innerHTML = "HTML5";
+                document.getElementById("titulo").style.color = "blue";
+            }
+
+            function cambiarColor(prueba) {
+                document.getElementById("imagen").src =
+                    "http://globalmentoring.com.mx/imagenes/css3.png";
+                document.getElementById("titulo").innerHTML = "CSS";
+                prueba.style.color = "brown";
+            }
+
+            document.getElementById("titulo").onclick = cambiarTexto;
+
+            function cambiarTexto (){
+                document.getElementById("titulo").innerHTML = "Se cambio el Titulo";
+                document.getElementById("valores").innerHTML = "Se cambio el contenido";
+            }
+
+            document.getElementById("direccion").addEventListener("focus", eventoListener);
+            document.getElementById("direccion").addEventListener("blur", (evento)=>{
+                evento.target.style.background = "white";
+            });
+
+            function eventoListener(evento){
+                let componente = evento.target;
+                componente.style.background = "red";
+            }
+
+            
+        </script>
+    </body>
+</html>

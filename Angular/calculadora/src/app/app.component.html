@@ -1,0 +1,5 @@
+<div class="container">
+  <h1>{{ titulo }}</h1>
+  <app-calculo (resultadoSuma)="procesarResultado($event)"> </app-calculo>
+  <app-resultado [resultadoHijo]="resultadoPadre"></app-resultado>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM con Javascript</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="cabecera" class="azul">Ejemplo DOM con JavaScript</h1>
+    <p id="parrafo" class="azul">Saludos</p>
+    <p id="parrafo1" class="azul">Otro parrafo</p>
+    
+    <script>
+        // Elegir elementos por ID
+        let cabecera = document.getElementById("cabecera").innerHTML;
+        console.log("Saludos desde JavaScript");
+        console.log(`Valor Cabecera:  ${cabecera}`);
+        let parrafo = document.getElementById("parrafo").innerHTML;
+        console.log("Saludos desde JavaScript");
+        console.log(`Valor parrafo:  ${parrafo}`);
+
+        // Elegir elementos por tag name
+        let parrafos =document.getElementsByTagName("p");
+        console.log(`Cantidad de Parrafos:  ${parrafos.length}`);
+
+        for(let i=0; i<parrafos.length; i++){
+            console.log(`i: ${i} - ${parrafos[i].innerHTML}`);
+        }
+
+        // Elegir elementos por clases
+        let elementos =document.getElementsByClassName("azul");
+        console.log(`Cantidad de elementos con color azul:  ${elementos.length}`);
+
+        for(let elemento of elementos){
+            console.log(`Elemento: ${elemento.innerHTML}`);
+        }
+
+        // Elegir elementos por query
+        let parrafosAzules =document.querySelectorAll("p.azul");
+        console.log(`Cantidad de parrafos con color azul:  ${parrafosAzules.length}`);
+
+        for(let parrafoAzul of parrafosAzules){
+            console.log(`Parrafos Azules: ${parrafoAzul.innerHTML}`);
+        }
+    </script>
+</body>
+</html>

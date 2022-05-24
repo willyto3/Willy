@@ -1,0 +1,17 @@
+{
+  "name": "gmc-backend",
+  "version": "1.0.0",
+  "description": "Backend para la pagina de Gamer Market Colombia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Teclados"
+  ],
+  "author": "Black Dog Solutions",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^2.6.2"
+  }
+}
