@@ -1,0 +1,38 @@
+.contenedor-testimonio {
+  width: 30rem;
+  background-color: #b4a5a3;
+  color: #353535;
+  padding: 1.5rem;
+  border-radius: 0.4rem;
+  margin: 10px 10px 10px;
+}
+
+.imagen-testimonio {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+.nombre-testimonio {
+  font: size 1.6rem;
+}
+.cargo-testimonio {
+  font: size 1.6rem;
+}
+.texto-testimonio {
+  font: size 1rem;
+}
+@media screen and (min-width: 34.375em) {
+  .contenedor-testimonio {
+    width: 60rem;
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+  }
+  .imagen-testimonio {
+    flex: 0 0 20rem;
+  }
+  .texto-testimonio {
+    font: size 1.6rem;
+  }
+}
